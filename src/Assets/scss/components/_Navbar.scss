@@ -1,28 +1,86 @@
 
 .__navbar {
-
+    // max-width: 1600px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    background-color: transparent;
-    padding-inline: 2rem;
+    justify-content: center;
+    align-items: start;
+    padding: 1rem;
+
+    @include md {
     position: fixed;
     width: 100%;
+    }
+
     .container {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-    }
-    ul {
-        list-style: none;
-        display: flex;
+        align-items: start;
+        max-width: 1680px;
 
-        li {
-            margin-inline: 1rem;
-            a {
-                font-weight: $font-w-semibold;
+        @include md {
+            align-items: center;
+        }
+        .__logo {
+            font-weight: $font-w-bold;
+            font-size: $font-size-35;
+            color: $color-theme-black-1;
+            margin: 0;
+            width: 100%;
+            transition: 200ms ease-in-out;
+    
+            &:hover {
+                color: $color-gray-20;
             }
         }
+    
+        ul {
+            font-weight: $font-w-semibold;
+            list-style: none;
+            padding: 0;
+    
+            @include md {
+                display: flex;
+                margin: 0;
+            }
+        }
+    
+        li {
+            margin: 0 1rem 0.5rem;
+            
+            @include md {
+                margin-bottom: 0;
+            }
+        }
+    
+    
     }
+    
+}
+.__nav-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include md {
+        flex-direction: row;
+    }
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+        width: 36px;
+        margin-bottom: 1rem;
+        box-shadow: $color-drop-shadow;
+        border-radius: 50%;
+        background-color: $color-theme-white;
+
+        @include md {
+            margin-left: 1rem;
+            margin-bottom: 0;
+        }
+    }
+
+
 }
