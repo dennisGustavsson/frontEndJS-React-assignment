@@ -1,0 +1,106 @@
+.featured-product {
+    background-color: $color-theme-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit ,minmax(270px, 300px));
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.product-card {
+    // border: 1px solid black;
+    min-width: 255px;
+    // height: 350px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    &:hover {
+        .card-menu {
+            right: 0;
+        }
+        button {
+            bottom: 0;
+        } 
+        .product-img {
+            background-color: $color-gray-5;
+        }
+    }
+
+}
+
+.product-img {
+    position: relative;
+    height: 240px;
+    width: 100%;
+    background-color: $color-gray-1;
+    transition: 250ms ease-in-out;
+    overflow: hidden;
+        button {
+        position: absolute;
+        bottom:-100px;
+        width: 100%;
+    }
+
+}
+
+.card-menu {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    top: 0.7rem;
+    right: -90px;
+    display: flex;
+    flex-direction: column;
+    transition: 250ms ease-in-out;
+    i:hover {
+        transition: 250ms ease-in-out;
+        background-color: $color-theme-black-1;
+        color: $color-theme-white;
+    }
+    // align-items: flex-end;
+}
+
+.product-info {
+    // position: absolute;
+    bottom: 0;
+    background-color: $color-theme-white;
+    width: 100%;
+    padding-block: 1rem;
+
+}
+
+
+.old-price {
+    text-decoration: line-through;
+    font-size: $font-size-16;
+}
+
+.new-price {
+    font-size: $font-size-18;
+    font-weight: $font-w-semibold
+}
+
+.rating {
+    a {
+        color: $theme-color;
+        &:hover {
+            color: $color-theme-hover;
+        }
+    }
+}
