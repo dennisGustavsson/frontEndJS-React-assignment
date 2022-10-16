@@ -13,9 +13,10 @@
     border: none;
     padding-inline: 1rem;
     transition: 200ms ease-in-out;
-
+    cursor: pointer;
     &:hover {
         background-color: $color-theme-hover;
+        color: $color-theme-white;
     }
 
     &:focus {
