@@ -1,0 +1,28 @@
+.__main-menu-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include md {
+        flex-direction: row;
+    }
+    .__menu-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+        width: 36px;
+        margin-bottom: 1rem;
+        box-shadow: $color-drop-shadow;
+        border-radius: 50%;
+        background-color: $color-theme-white;
+
+        @include md {
+            margin-left: 1rem;
+            margin-bottom: 0;
+        }
+    }
+
+
+}
