@@ -9,19 +9,22 @@ html, body {
     padding: 0;
  }
 
- a {
-    text-decoration: none;
-    color: $color-theme-black-1;
-    transition: 200ms ease-in-out;
-    &:hover {
-        color: $color-theme;
-    }
- }
+//  a {
+//     text-decoration: none;
+//     color: $color-theme-black-1;
+//     transition: 200ms ease-in-out;
+//     &:hover {
+//         color: $color-theme;
+//     }
+//  }
 
 
  ul {
     padding-bottom: 0;
     margin-bottom: 0;
+ }
+ .bg-theme {
+    background-color: $color-theme;
  }
  .section-title {
     font-weight: $font-w-bold;

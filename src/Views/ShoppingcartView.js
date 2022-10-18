@@ -1,7 +1,6 @@
 import { FooterSection } from "../Sections/FooterSection"
 import MainMenuSection from "../Sections/MainMenuSection"
-
-const HomeView = () => {
+const ShoppingcartView = () => {
   return (
     <>
     <MainMenuSection/>
@@ -9,4 +8,4 @@ const HomeView = () => {
     </>
   )
 }
-export default HomeView
+export default ShoppingcartView

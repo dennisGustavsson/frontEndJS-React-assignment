@@ -5,18 +5,18 @@ const MainMenuSection = () => {
   return (
     <nav className="__main-menu">
         <div className="container">
-        <NavLink to="/"><h1 className="__logo"> Fixxo.</h1></NavLink>
+        <h1> <NavLink className="__logo" to="/" end>Fixxo.</NavLink></h1>
         <ul className="__menu-links">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/categories">Categories</NavLink></li>
-            <li><NavLink to="/products">Products</NavLink></li>
-            <li><NavLink to="/contacts">Contacts</NavLink></li>
+            <li><NavLink className="__menu-link" to="/" end>Home</NavLink></li>
+            <li><NavLink className="__menu-link" to="/categories" end>Categories</NavLink></li>
+            <li><NavLink className="__menu-link" to="/products" end>Products</NavLink></li>
+            <li><NavLink className="__menu-link" to="/contacts" end>Contacts</NavLink></li>
         </ul>
         <div class="__main-menu-icons">
             <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass"/>
             <MenuIcon link="/compare" icon="fa-regular fa-code-compare"/>
-            <MenuIcon link="/wishlist" icon="fa-regular fa-heart"/>
-            <MenuIcon link="/shoppingcart" icon="fa-regular fa-shopping-bag"/>
+            <MenuIcon quantity={3} link="/wishlist" icon="fa-regular fa-heart"/>
+            <MenuIcon quantity={1}  link="/shoppingcart" icon="fa-regular fa-shopping-bag"/>
         </div>
         </div>
     </nav>
