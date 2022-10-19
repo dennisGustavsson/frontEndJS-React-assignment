@@ -7,39 +7,7 @@
     @include md {
         flex-direction: row;
     }
-    // .__menu-icon {
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     height: 36px;
-    //     width: 36px;
-    //     color: $color-theme-black-1;
-    //     margin-bottom: 1rem;
-    //     margin-inline: 1rem;
-    //     box-shadow: $color-drop-shadow;
-    //     border-radius: 50%;
-    //     background-color: $color-theme-white;
-    //     text-decoration: none;
-    //     transition: 200ms ease-in-out;
-    //     position: relative;
-    //     &:hover {
-    //         background-color: $color-theme-black-1;
-    //         color: $color-theme-white;
-    //     }
 
-    //     @include md {
-    //         margin-left: 0.5rem;
-    //         margin-right: 0;
-    //         margin-bottom: 0;
-    //     }
-
-    // }
-    // .hidden {
-    //     display: none;
-    //     @include md {
-    //     display: flex;
-    //     }
-    // }
 
     .active {
         background-color: $color-theme-black-1;

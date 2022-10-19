@@ -4,6 +4,7 @@ import Jumbotron1Section from "../Sections/Jumbotron1Section"
 import Jumbotron2Section from "../Sections/Jumbotron2Section"
 import MainMenuSection from "../Sections/MainMenuSection"
 import OurSpecialitySection from "../Sections/OurSpecialitySection"
+import ServiceSection from "../Sections/ServiceSection"
 import ShowcaseSection from "../Sections/ShowcaseSection"
 
 const HomeView = () => {
@@ -15,6 +16,7 @@ const HomeView = () => {
     <FeaturedProductsSection/>
     <Jumbotron2Section/>
     <OurSpecialitySection/>
+    <ServiceSection/>
     <FooterSection/>
     </>
   )
