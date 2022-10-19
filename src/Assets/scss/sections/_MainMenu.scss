@@ -1,24 +1,26 @@
 
 .__main-menu {
-    display: flex;
-    justify-content: center;
-    align-items: start;
     padding: 1rem;
     z-index: 1;
     @include md {
+    padding: 2.5rem;
     position: fixed;
     width: 100%;
-
     }
 
     .container {
         display: flex;
-        justify-content: space-between;
-        align-items: start;
+        justify-content: center;
+        align-items: center;
         max-width: 1680px;
         position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
         @include md {
+            flex-direction: row;
             align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;
         }
         .__logo {
             font-weight: $font-w-bold;
@@ -26,7 +28,6 @@
             color: $color-theme-black-1;
             text-decoration: none;
             margin: 0;
-            // width: 100%;
             transition: 200ms ease-in-out;
     
             &:hover {
@@ -40,19 +41,19 @@
             font-weight: $font-w-semibold;
             list-style: none;
             padding: 0;
-    
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
             @include md {
-                display: flex;
-                margin: 0;
+                margin-bottom: 0;
             }
         }
     
         li {
-            margin: 0 1rem 0.5rem 1rem;
-            
-            @include md {
-                margin-bottom: 0;
-            }
+            margin-inline: 0.5rem;
+            // @include md {
+            //     margin: 0 1rem 0 1rem;
+            // }
 
             .__menu-link {
                 color: $color-theme-black-1;

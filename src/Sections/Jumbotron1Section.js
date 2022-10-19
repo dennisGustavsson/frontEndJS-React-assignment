@@ -1,7 +1,7 @@
 import firstJumboImg from '../Assets/images/img-5.svg';
 import secondJumboImg from '../Assets/images/img-6.svg';
 
-const JumbotronOne = () => {
+const Jumbotron1Section = () => {
   return (
 <section className="jumbotron container">
   <div className="jumbo-content">
@@ -22,4 +22,4 @@ const JumbotronOne = () => {
 </section>
   )
 }
-export default JumbotronOne
+export default Jumbotron1Section

@@ -1,10 +1,9 @@
-import React from 'react'
 import leftShowcase from '../Assets/images/img-2.svg'
 import rightShowcase from '../Assets/images/img-1.svg'
 
-const showcase = () => {
-  return (        
-  <nav className="showcase">
+const ShowcaseSection = () => {
+  return (
+    <nav className="showcase">
     <img src={leftShowcase}/>
     <div className="showcase-items">
         <h2>
@@ -14,7 +13,6 @@ const showcase = () => {
     </div>
     <img id="hide-img" src={rightShowcase} alt="placeholder image"/>
   </nav>
-)
+  )
 }
-
-export default showcase
+export default ShowcaseSection
