@@ -5,6 +5,8 @@
     align-items: center;
     flex-direction: column;
     margin: 2rem 0 2rem 0;
+
+
 }
 
 
@@ -28,7 +30,6 @@
     position: relative;
     margin-bottom: 1rem;
     overflow: hidden;
-    cursor: pointer;
     &:hover {
         .card-menu {
             right: 0;
@@ -66,20 +67,13 @@
     display: flex;
     flex-direction: column;
     transition: 250ms ease-in-out;
-    i:hover {
-        transition: 250ms ease-in-out;
-        background-color: $color-theme-black-1;
-        color: $color-theme-white;
-    }
 
     .__menu-icon {
         margin:5px 10px;
     }
-    // align-items: flex-end;
 }
 
 .product-info {
-    // position: absolute;
     bottom: 0;
     background-color: $color-theme-white;
     width: 100%;
@@ -88,6 +82,10 @@
     .__category-link {
         color: $color-theme-black-1;
         text-decoration: none;
+        // transition: 200ms ease-in-out;
+        &:hover {
+            color: $theme-color;
+        }
     }
 
 }

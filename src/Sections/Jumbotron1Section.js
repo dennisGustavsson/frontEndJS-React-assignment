@@ -15,7 +15,7 @@ const Jumbotron1Section = () => {
   <div className="jumbo-content">
     <img src={secondJumboImg} alt=""/>
     <div className="jumbo-text">
-      <h2>New Arivalls</h2>
+      <h2>New Arrivals</h2>
       <button className="btn-theme">Shop now</button>
     </div>
   </div>

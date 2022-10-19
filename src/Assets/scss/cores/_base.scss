@@ -10,15 +10,6 @@ html, body {
     min-height: 100vh;
  }
 
-//  a {
-//     text-decoration: none;
-//     color: $color-theme-black-1;
-//     transition: 200ms ease-in-out;
-//     &:hover {
-//         color: $color-theme;
-//     }
-//  }
-
 
  ul {
     padding-bottom: 0;
@@ -36,10 +27,7 @@ html, body {
  img {
     max-width: 100%;
     height: auto;
-    // overflow: hidden;
-    // @include xl {
-    //     max-width: 100%;
-    // }
+
  }
 
  .container-fluid {
@@ -54,11 +42,9 @@ html, body {
     margin: 0 auto;
     @include md {
         max-width: 1200px;
-        
     }
     @include lg {
         max-width: 1600px;
-        // padding: 1rem;
     }
 }
 
