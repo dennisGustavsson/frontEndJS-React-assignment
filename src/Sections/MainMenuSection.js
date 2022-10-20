@@ -3,7 +3,7 @@ import MenuIcon from "../Components/MenuIcon"
 
 const MainMenuSection = () => {
   return (
-    <nav className="__main-menu">
+    <nav className="__main-menu d-none">
         <div className="container">
           <h1> <NavLink className="__logo" to="/" end>Fixxo.</NavLink></h1>
           <ul className="__menu-links">

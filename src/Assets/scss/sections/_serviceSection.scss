@@ -10,10 +10,10 @@
         padding-top: 2rem;
         border-top: 1px solid $color-gray-5;
         @include md {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: auto auto;
         }
         @include lg {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: auto auto auto auto;
         }
     }
 
