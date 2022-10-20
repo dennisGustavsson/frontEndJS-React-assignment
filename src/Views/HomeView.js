@@ -1,5 +1,7 @@
 import FeaturedProductsSection from "../Sections/FeaturedProductsSection"
-import FlashSaleSection from "../Sections/FlashSaleSection"
+import FlashSaleSection1 from "../Sections/FlashSaleSection1"
+import FlashSaleSection2 from "../Sections/FlashSaleSection2"
+import FlashSaleSection3 from "../Sections/FlashSaleSection3"
 import { FooterSection } from "../Sections/FooterSection"
 import Jumbotron1Section from "../Sections/Jumbotron1Section"
 import Jumbotron2Section from "../Sections/Jumbotron2Section"
@@ -17,7 +19,9 @@ const HomeView = () => {
     <FeaturedProductsSection/>
     <Jumbotron2Section/>
     <OurSpecialitySection/>
-    <FlashSaleSection/>
+    <FlashSaleSection1/>
+    <FlashSaleSection2/>
+    <FlashSaleSection3/>
     <ServiceSection/>
     <FooterSection/>
     </>
