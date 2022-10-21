@@ -68,7 +68,7 @@
     flex-direction: column;
     transition: 250ms ease-in-out;
 
-    .__menu-icon {
+    .menu-icon {
         margin:5px 10px;
     }
 }
@@ -79,7 +79,7 @@
     width: 100%;
     padding-block: 1rem;
 
-    .__category-link {
+    .category-link {
         color: $color-theme-black-1;
         text-decoration: none;
         // transition: 200ms ease-in-out;

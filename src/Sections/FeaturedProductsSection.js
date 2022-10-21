@@ -12,13 +12,13 @@ const FeaturedProductsSection = () => {
             </div>
             <div className="product-bg"></div>
             <div className="card-menu">
-                <NavLink href="" className="__menu-icon" to="/wishlist"><i className="fa-regular fa-heart"></i></NavLink>
-                <NavLink href="" className="__menu-icon" to="/compare"><i className="fa-regular fa-code-compare"></i></NavLink>
-                <NavLink href="" className="__menu-icon" to="shoppingcart"><i className="fa-regular fa-shopping-bag"></i></NavLink>
+                <NavLink href="" className="menu-icon" to="/wishlist"><i className="fa-regular fa-heart"></i></NavLink>
+                <NavLink href="" className="menu-icon" to="/compare"><i className="fa-regular fa-code-compare"></i></NavLink>
+                <NavLink href="" className="menu-icon" to="shoppingcart"><i className="fa-regular fa-shopping-bag"></i></NavLink>
             </div>
             <div className="product-info">
                 <span>Category</span>
-                <NavLink className="__category-link" to="/products" ><h4>Modern Black Blouse</h4></NavLink>
+                <NavLink className="category-link" to="/products" ><h4>Modern Black Blouse</h4></NavLink>
                 <span className="rating">
                     <a href=""><i className="fa-solid fa-star"></i></a>
                     <a href=""><i className="fa-solid fa-star"></i></a>

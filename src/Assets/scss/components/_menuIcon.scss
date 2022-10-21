@@ -1,5 +1,5 @@
 
-.__menu-icon {
+.menu-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,5 +30,15 @@
     display: none;
     @include md {
     display: flex;
+    }
+}
+
+.btn-menu-icon {
+    border: none;
+    background-color: $color-theme-black-1;
+    color: $color-theme-white;
+    &:hover {
+        color: $color-theme;
+        background-color: $color-theme-white;
     }
 }
