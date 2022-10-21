@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 const FlashSaleSection3 = () => {
   return (
     <>
-    <section className="flash-sale container">
+    <section className="flash-sale container d-none">
         <div className="flash-grid-center">
             <div className="flash-advert">
                 <h2>2 FOR $29.00</h2>
