@@ -1,0 +1,114 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit ,minmax(270px, 300px));
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.product-card {
+    min-width: 255px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    &:hover {
+        .card-menu {
+            right: 0;
+        }
+        .btn-theme {
+            bottom: 0;
+        } 
+        .product-img {
+            background-color: $color-gray-5;
+        }
+    }
+
+}
+
+.product-img {
+    position: relative;
+    height: 240px;
+    width: 100%;
+    background-color: $color-gray-1;
+    transition: 250ms ease-in-out;
+    overflow: hidden;
+        .btn-theme {
+        position: absolute;
+        bottom:-100px;
+        width: 100%;
+    }
+
+}
+
+.product-info {
+    bottom: 0;
+    background-color: $color-theme-white;
+    width: 100%;
+    padding-block: 1rem;
+
+    .category-title {
+        font-size: $font-size-13;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+
+    h4 {
+        font-size: $font-size-16;
+        font-weight: $font-w-semibold;
+        margin-bottom: 0.5rem;
+    }
+
+
+}
+
+.card-menu {
+    position: absolute;
+    padding: 0;
+    top: 0.7rem;
+    right: -90px;
+    display: flex;
+    flex-direction: column;
+    transition: 250ms ease-in-out;
+
+    .menu-icon {
+        margin:5px 10px;
+    }
+}
+
+.rating {
+    display: inline-block;
+    margin-bottom: 0.2rem;
+
+    i {
+        color: $theme-color;
+        &:hover {
+            color: $color-theme-hover;
+        }
+    }
+}
+
+
+.old-price {
+    text-decoration: line-through;
+    font-size: $font-size-16;
+    margin-top: 0;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+
+.new-price {
+    font-size: $font-size-18;
+    font-weight: $font-w-semibold;
+    display: inline-block;
+}
+
+
+
+

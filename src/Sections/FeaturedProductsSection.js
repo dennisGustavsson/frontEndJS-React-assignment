@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import ProductCard from "../Components/ProductCard"
 
 const FeaturedProductsSection = () => {
   return (
@@ -31,8 +32,9 @@ const FeaturedProductsSection = () => {
                 <span className="new-price">$30.00</span>
             </div>
         </div>
-        
-
+    <ProductCard/>
+    <ProductCard/>
+    <ProductCard/>
     </div>
 </section>
   )
