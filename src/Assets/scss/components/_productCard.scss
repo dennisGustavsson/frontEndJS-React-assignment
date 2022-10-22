@@ -1,49 +1,64 @@
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit ,minmax(270px, 300px));
-    justify-content: center;
+    margin-inline: auto;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     @include md {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3 ,minmax(240px, 280px));
+        margin-inline: 0.5rem;
     }
     @include lg {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3 ,minmax(220px, 280px));
+    }
+    @include xl {
+        grid-template-columns: repeat(4, 250px);
     }
 }
 
 .product-card {
-    min-width: 255px;
+    max-width: 260px;
     text-align: center;
     position: relative;
     margin-bottom: 1rem;
     overflow: hidden;
-    &:hover {
-        .card-menu {
-            right: 0;
-        }
-        .btn-theme {
-            bottom: 0;
-        } 
-        .product-img {
-            background-color: $color-gray-5;
+
+    @include xl {
+        &:hover {
+            .card-menu {
+                right: 0;
+            }
+            .btn-theme {
+                bottom: 0;
+            } 
+            .product-img {
+                background-color: $color-gray-5;
+            }
         }
     }
+
 
 }
 
 .product-img {
     position: relative;
-    height: 240px;
+    height: 260px;
     width: 100%;
     background-color: $color-gray-1;
     transition: 250ms ease-in-out;
     overflow: hidden;
-        .btn-theme {
+    
+    .btn-theme {
+        bottom: 0;
         position: absolute;
-        bottom:-100px;
-        width: 100%;
+                    width: 100%;
     }
+    @include xl {
+        .btn-theme {
+            bottom:-100px;
+        }
+    }
+
 
 }
 
@@ -72,11 +87,14 @@
     position: absolute;
     padding: 0;
     top: 0.7rem;
-    right: -90px;
+    right: 0;
     display: flex;
     flex-direction: column;
     transition: 250ms ease-in-out;
 
+    @include xl {
+        right: -90px;
+    }
     .menu-icon {
         margin:5px 10px;
     }

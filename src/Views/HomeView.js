@@ -16,7 +16,7 @@ const HomeView = () => {
     <MainMenuSection/>
     <ShowcaseSection/>
     <Jumbotron1Section/>
-    <FeaturedProductsSection/>
+    <FeaturedProductsSection title="Featured Products" />
     <Jumbotron2Section/>
     <OurSpecialitySection/>
     <FlashSaleSection1/>
