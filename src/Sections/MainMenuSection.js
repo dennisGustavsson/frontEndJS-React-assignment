@@ -16,7 +16,7 @@ const MainMenuSection = () => {
           <ul className={`menu-links ${ showMenu ? "d-flex" : ""}`}>
               <li><NavLink className="menu-link" to="/" end>Home</NavLink></li>
               <li><NavLink className="menu-link" to="/categories" end>Categories</NavLink></li>
-              <li><NavLink className="menu-link" to="/products" end>Products</NavLink></li>
+              <li><NavLink className="menu-link" to="/products">Products</NavLink></li>
               <li><NavLink className="menu-link" to="/contacts" end>Contacts</NavLink></li>
           </ul>
           <div className="main-menu-icons">
