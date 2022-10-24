@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 const OurSpecialitySection = () => {
   return (
-<section class="speciality">
+<section className="speciality">
 <h2 className="section-title">Our speciality</h2>
     <div className="service-content container">
         <div className="service-card">

@@ -19,13 +19,13 @@ const MainMenuSection = () => {
               <li><NavLink className="menu-link" to="/products" end>Products</NavLink></li>
               <li><NavLink className="menu-link" to="/contacts" end>Contacts</NavLink></li>
           </ul>
-          <div class="main-menu-icons">
+          <div className="main-menu-icons">
               <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass"/>
               <MenuIcon hideMobile="true" link="/compare" icon="fa-regular fa-code-compare"/>
               <MenuIcon hideMobile="true" quantity={3} link="/wishlist" icon="fa-regular fa-heart"/>
               <MenuIcon quantity={1}  link="/shoppingcart" icon="fa-regular fa-shopping-bag"/>
 
-              <button onClick={toggleMenu} className="d-md-none menu-icon btn-menu-icon"><i className="fa-regular fa-bars"></i></button>
+              <button onClick={toggleMenu} className="d-lg-none menu-icon btn-menu-icon"><i className="fa-regular fa-bars"></i></button>
           </div>
         </div>
     </nav>

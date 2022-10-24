@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom"
+import ProductCard from "../Components/ProductCard"
+import ProductGridSection from "./ProductGridSection"
 
-const FlashSaleSection2 = () => {
+const FlashSaleSection2 = (products) => {
   return (
     <>
     <section className="flash-sale container">
@@ -10,60 +12,8 @@ const FlashSaleSection2 = () => {
                 <NavLink className="btn-theme btn-theme-white">Flash Sale</NavLink>
             </div>
             <div className="product-grid grid-end">
-                <div className="product-card">
-                    <div className="product-img"></div>
-                    <span>Category</span>
-                    <h3>Mordern Black Blouse</h3>
-                    <span className="ratings">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    </span>
-                    <span className="new-price">$49.00</span>
-                </div>
-                <div className="product-card">
-                    <div className="product-img"></div>
-                    <span>Category</span>
-                    <h3>Mordern Black Blouse</h3>
-                    <span className="ratings">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    </span>
-                    <span className="new-price">$49.00</span>
-                </div>
-                <div className="product-card">
-                    <div className="product-img"></div>
-                    <span>Category</span>
-                    <h3>Mordern Black Blouse</h3>
-                    <span className="ratings">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    </span>
-                    <span className="new-price">$49.00</span>
-                </div>
-                <div className="product-card">
-                    <div className="product-img"></div>
-                    <span>Category</span>
-                    <h3>Mordern Black Blouse</h3>
-                    <span className="ratings">
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    <i className="fa-solid fa-star"></i>
-                    </span>
-                    <span className="new-price">$49.00</span>
-                </div>
-            </div>
 
+            </div>
         </div>
     </section>
     </>

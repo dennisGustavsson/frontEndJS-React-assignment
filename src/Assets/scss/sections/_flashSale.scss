@@ -2,7 +2,7 @@
     background-color: $color-theme-white;
     width: 100%;
     height: 100%;
-    margin-block: 2rem;
+    // margin-block: 2rem;
 
     .flash-grid{
         display: grid;
@@ -10,14 +10,14 @@
         width: 100%;
         grid-template-columns: 1fr;
         gap:2rem;
-        margin-block: 2rem;
+        // margin-block: 2rem;
         grid-template-areas: 
         "flashsale"
         "products";
         @include lg {
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: 
-                "flashsale products";
+            grid-template-columns: auto auto;
+            // grid-template-areas: 
+            //     "flashsale products";
             &.reverse-grid {
                 grid-template-areas: 
                 "products flashsale";
@@ -32,8 +32,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding-block: 4rem;
-            padding-inline: 1rem;
+
 
             h2 {
                 color: $color-theme-white;
@@ -47,17 +46,17 @@
         .product-grid { 
             grid-area: products;
             display: grid;
-            grid-template-columns: auto;
-            grid-auto-rows: auto;
+            grid-template-columns: 1fr;
+            // grid-auto-rows: auto;
             gap: 1rem;
-            justify-content: center;
+            // justify-items: center;
 
 
 
             @include md {
                 grid-template-columns: auto auto;
-                justify-content: center;
-                gap: 2rem;
+                // justify-content: center;
+                // gap: 2rem;
             }
             @include lg {
                 justify-content: start;
@@ -68,8 +67,8 @@
             }
             .product-card {
                 display: grid;
-                // width: 250px;
-                // height: 330px;
+                max-width: 250px;
+                height: auto;
                 text-align: start;
     
                 span {
@@ -123,22 +122,31 @@
                 text-shadow: 0 2px 4px $color-gray-15;
                 margin-bottom: 1.5rem;
             }
+            h4 {
+                color: $color-theme-white;
+                font-weight: $font-w-bold;
+                font-size: $font-size-20;
+                margin-bottom: 2.5rem;
+            }
         }
         .product-grid {
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(3, 400px);
             gap:1rem;
 
             .product-card {
                 display: grid;
                 align-items: center;
                 text-align: start;
-                width: 360px;
-                grid-template-columns: auto auto;
-    
+                grid-template-columns: 1fr 2fr;
+                overflow: initial;
                 .product-img {
-                    height: 100%;
-                    width: 180px;
+                    height: 200px;
+                    width: 200px;
+                }
+
+                .product-info {
+                    width: 100%;
                 }
                 .category-title {
                     font-size: $font-size-13;
