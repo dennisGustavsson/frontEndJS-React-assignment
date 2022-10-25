@@ -1,46 +1,7 @@
 
-.head-contacts {
-    background-image: none;
-}
-
-
-.breadcrumb {
-    display: inline-flex;
-    justify-content: start;
-    align-items: center;
-    height: 70px;
-    padding: 0;
-    margin-top: 80px;
-    ul {
-        list-style: none;
-        padding: 0;
-        display: inline-flex;
-        align-items: center;
-
-        li {
-            margin-right: 0.5rem;
-        
-        }
-        a {
-            font-weight: $font-w-semibold;
-        }
-
-    }
-
-}
-.map {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-        width: 100%;
-    }
-}
-
-
 .contact-us {
-    margin-top: 5rem;
+    margin-top: 2rem;
+    padding-inline: 1rem;
 
     h3 {
         font-size: $font-size-18;

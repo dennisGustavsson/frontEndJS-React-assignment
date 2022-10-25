@@ -4,6 +4,9 @@ import MainMenuSection from "../Sections/MainMenuSection"
 
 const ProductDetailsView = () => {
 
+      /* window title  */
+      window.top.document.title = 'Product details | Fixxo';
+
     const params = useParams()
 
   return (

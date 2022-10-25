@@ -13,6 +13,9 @@ import ShowcaseSection from "../Sections/ShowcaseSection"
 
 const HomeView = () => {
 
+    /* window title  */
+    window.top.document.title = 'Home | Fixxo';
+
     /* temporary product api.. ish */
     const [featuredProducts, setFeaturedProducts] = useState([
 
