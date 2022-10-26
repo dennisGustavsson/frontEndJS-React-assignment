@@ -73,26 +73,4 @@ body {
     position: relative;
 }
 
-.error-msg {
-    color:red;
-    font-style: italic;
-    font-size: $font-size-14;
-    position: absolute;
-    top: 5px;
-    left: 1rem;
-    background-color: white;
-    padding-inline: 0.5rem;
-    box-shadow: 0 0 2px 1px $color-theme-white;
-    &-btn {
-        position: absolute;
-        bottom: 150px;
-        left: 650px;
-        color: red;
-        font-size: $font-size-14;
-        font-style: italic;
-    }
-}
 
-#comments-error {
-    top: -10px;
-}
