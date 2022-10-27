@@ -8,6 +8,8 @@ const ContactFormSection = () => {
     /* useState for error messages */
     const [formErrors, setFormErrors] = useState({})
 
+    const [canSubmit, setCanSubmit] = useState(false)
+
 
     const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const regexName = /^(?=.{2,50}$)[a-z]+(?:['-\s][a-z]+)*$/i
@@ -15,49 +17,6 @@ const ContactFormSection = () => {
 
 
 
-
-
-
-
-    const validate = (values) => {
-        const errors = {}
-        
-        
-        if(!values.name) {
-            errors.name = 'You need to enter a name with at least 2 charachters'
-        } 
-        else if(!regexName.test(values.name)) {
-            errors.name = 'Enter name without numbers or special characters'
-        }
-        if(!values.email) {
-            errors.email = 'You need to enter a email'
-        } 
-        else if(!regexEmail.test(values.email)) {
-            errors.email = 'You must enter a valid email adress (eg. name@domain.com ) '
-        }
-
-        if(!values.comment) {
-            errors.comment = 'You need to enter a comment'
-        }
-        else if(values.comment.length < 20) {
-            errors.comment = 'You need to enter at least 20 charachters'
-        }
-
-        return errors;
-    }
-
-
-    const handleChange = (e) => { //checks for events on the input and puts them in the form object
-        const {id, value} = e.target
-
-        setContactForm({...contactForm, [id]: value})
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        setFormErrors(validate(contactForm))
-    }
 
 
     //validates name input onKeyUp
@@ -112,13 +71,80 @@ const ContactFormSection = () => {
     
     }
 
+    const validate = (values) => {
+        const errors = {}
+        
+        
+        if(!values.name) {
+            errors.name = 'You need to enter a name with at least 2 charachters'
+        } 
+        else if(!regexName.test(values.name)) {
+            errors.name = 'Enter name without numbers or special characters'
+        }
+        if(!values.email) {
+            errors.email = 'You need to enter a email'
+        } 
+        else if(!regexEmail.test(values.email)) {
+            errors.email = 'You must enter a valid email adress (eg. name@domain.com ) '
+        }
+
+        if(!values.comment) {
+            errors.comment = 'You need to enter a comment'
+        }
+        else if(values.comment.length < 20) {
+            errors.comment = 'You need to enter at least 20 charachters'
+        }
+
+        //checks if error object have any error-messages before submit
+        if(Object.keys(errors).length === 0) {
+            setCanSubmit(true)
+        } 
+        else {
+            setCanSubmit(false)
+        }
+
+        return errors;
+    }
+
+
+    const handleChange = (e) => { //checks for events on the input and puts them in the form object
+        const {id, value} = e.target
+
+        setContactForm({...contactForm, [id]: value})
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        setFormErrors(validate(contactForm))
+    }
+
+    //first letter and first letter after whitespace to upper
+    const getNameToUpper = (name) => {
+        const firstLetterUpper = name
+        .toLowerCase() //makes all letters lowercase
+        .split(' ') //splits all words where there is a whitespace, and puts all words in a array
+        .map(word => { //maps trough the array 
+            return word.charAt(0).toUpperCase() + word.slice(1); //takes first char of all words in array and makes uppercase
+        })
+        .join(' ') //joins every word from the array and puts a whitespace between them
+        return firstLetterUpper
+    }
+
+
 
 
 
 
     return (
         <section className="contact-us container">
-            <h3>Come in Contact with Us</h3>
+            {
+                canSubmit ?
+                 (<div> thank you {getNameToUpper(contactForm.name)} for your comment!</div>)
+                : 
+                (
+                    <>
+                    <h3>Come in Contact with Us</h3>
             <form id="form" className="form-theme" onSubmit={handleSubmit} noValidate>
             <div className="d-grid-2">
                 <div className="relative">
@@ -126,11 +152,6 @@ const ContactFormSection = () => {
                 <label htmlFor="name">Your Name</label>
                 <span className="error-msg">{formErrors.name}</span>
                 </div>
-
-
-
-
-
                 <div className="relative">
                 <input id="email" type="email" placeholder=" " onChange={handleChange} onKeyUp={handleEmail} value={contactForm.email}/>
                 <label htmlFor="email">Your Email</label>
@@ -147,6 +168,9 @@ const ContactFormSection = () => {
             <span className="error-msg-btn"></span></div> 
 
             </form>
+                    </>
+                )
+            }
         </section>
     )
 }
