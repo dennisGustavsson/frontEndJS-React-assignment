@@ -1,0 +1,58 @@
+.miniAd {
+    .container {
+        display: grid;
+        justify-items: center;
+        max-width: 1110px;
+        box-shadow: $color-drop-shadow;
+
+        span {
+            color: $color-theme;
+            font-size: $font-size-16;
+            font-weight: $font-w-semibold;
+            padding: 0.5rem 0;
+        }
+    }
+}
+
+.product {
+
+    .container {
+        max-width: 1110px;
+        .product-body {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            .product-img {
+                width: 540px;
+                height: 600px;
+                background-color: $color-gray-1;
+            }
+            .product-info {
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                flex-direction: column;
+
+                .btn-secondary {
+                    background-color: $color-theme-white;
+                    border-radius: 0;
+                    margin-inline: 0.5rem;
+                    color: $color-theme-black-1;
+
+                }
+                .btn-check:active {
+                    background-color: black;
+                }
+                h4 {
+                    font-size: $font-size-16;
+                    font-weight: $font-w-medium;
+                }
+                .choose-size {
+                    display: flex;
+                    align-items: center;
+                }
+
+            }
+
+        }
+    }
+}

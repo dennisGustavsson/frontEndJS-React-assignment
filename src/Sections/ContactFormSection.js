@@ -1,135 +1,139 @@
 import { useState } from "react"
+import { getNameToUpper } from "../Assets/Scripts/getNameToUpper"
 
 const ContactFormSection = () => {
 
-    /* useState for our inputs */
-    const [contactForm, setContactForm] = useState({name: '', email: '', comment: ''})
 
-    /* useState for error messages */
-    const [formErrors, setFormErrors] = useState({})
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [comment, setComment] = useState('');
+    const [errors, setErrors] = useState({});  
+    const [submitted, setSubmitted] = useState(false);
 
-    const [canSubmit, setCanSubmit] = useState(false)
-
-
-    const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    const regexName = /^(?=.{2,50}$)[a-z]+(?:['-\s][a-z]+)*$/i
-
+    //regex for name and email inputs
+    const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const regexName = /^(?=.{2,50}$)[a-z]+(?:['-\s][a-z]+)*$/i;
 
 
-
-
-
-    //validates name input onKeyUp
-    const handleName = (e) => {
-        e.preventDefault()
-        setFormErrors(validateName(contactForm))
-    }
-
-        const validateName = (values) => {
-        
-        const errors = {}
-
-        if(!regexName.test(values.name) || values.name == 0) {
-            errors.name = 'Enter name with at least 2 charachters without numbers or special characters'
-        }
-        return errors
-    
-    }
-    // validates email input onKeyUp
-    const handleEmail = (e) => {
-        e.preventDefault()
-        setFormErrors(validateEmail(contactForm))
-    }
-
-
-    const validateEmail = (values) => {
-        
-        const errors = {}
-
-        if(!regexEmail.test(values.email) || values.email == 0) {
-            errors.email = 'You need to enter a valid email'
-        }
-        return errors
-    
-    }
-    //validates comment to be at least 20 chars onKeyUp
-    const handleComment = (e) => {
-        e.preventDefault()
-        setFormErrors(validateComment(contactForm))
-    }
-
-
-    const validateComment = (values) => {
-        const requiredLength = 20;
-        const charsLeft = requiredLength - values.comment.length
-        const errors = {}
-
-        if(charsLeft > 0 ) {
-            errors.comment = `You need to enter at least ${charsLeft} more charachters`
-        }
-        return errors
-    
-    }
-
-    const validate = (values) => {
-        const errors = {}
-        
-        
-        if(!values.name) {
-            errors.name = 'You need to enter a name with at least 2 charachters'
-        } 
-        else if(!regexName.test(values.name)) {
-            errors.name = 'Enter name without numbers or special characters'
-        }
-        if(!values.email) {
-            errors.email = 'You need to enter a email'
-        } 
-        else if(!regexEmail.test(values.email)) {
-            errors.email = 'You must enter a valid email adress (eg. name@domain.com ) '
-        }
-
-        if(!values.comment) {
-            errors.comment = 'You need to enter a comment'
-        }
-        else if(values.comment.length < 20) {
-            errors.comment = 'You need to enter at least 20 charachters'
-        }
-
-        //checks if error object have any error-messages before submit
-        if(Object.keys(errors).length === 0) {
-            setCanSubmit(true)
-        } 
-        else {
-            setCanSubmit(false)
-        }
-
-        return errors;
-    }
-
-
-    const handleChange = (e) => { //checks for events on the input and puts them in the form object
+    //handles the inputs and sets the value to each variable
+    const handleChange = (e) => {
         const {id, value} = e.target
+        
+        switch(id) {
+            case 'name':
+                setName(value) //sets the value of name
+                break;
+            case 'email': 
+                setEmail(value)
+                break;
+            case 'comment':
+                setComment(value)
+                break;
+        }
+        //sets the errors in the object
+        setErrors({...errors, [id]: validation(e)})
+    }
 
-        setContactForm({...contactForm, [id]: value})
+    //function that takes event and a form variable
+    const validation = (e, form = null) => {
+        if(e.type === 'submit') {
+            const errors = {}
+            errors.name = validateName(form.name)
+            errors.email = validateEmail(form.email)
+            errors.comment = validateComment(form.comment)
+            console.log(form.value)
+            console.log(errors)
+            return errors
+        }
+        else {
+            const {id, value} = e.target
+            switch(id) {
+                case 'name':
+                    console.log(validateName(value))
+                    return validateName(value)
+                case 'email':
+                    console.log(validateEmail(value))
+                    return validateEmail(value)
+                case 'comment':
+                    console.log(validateComment(value))
+                    return validateComment(value)
+            }
+        }
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setErrors(validation(e, {name, email, comment}))
 
-        setFormErrors(validate(contactForm))
+        if(errors.name === null && errors.email === null && errors.comment === null) {
+            setSubmitted(true)
+            //resets input states
+            setName('')
+            setEmail('')
+            setComment('')
+            setErrors({})
+        } 
+        else {
+            setSubmitted(false)
+        }
     }
 
-    //first letter and first letter after whitespace to upper
-    const getNameToUpper = (name) => {
-        const firstLetterUpper = name
-        .toLowerCase() //makes all letters lowercase
-        .split(' ') //splits all words where there is a whitespace, and puts all words in a array
-        .map(word => { //maps trough the array 
-            return word.charAt(0).toUpperCase() + word.slice(1); //takes first char of all words in array and makes uppercase
-        })
-        .join(' ') //joins every word from the array and puts a whitespace between them
-        return firstLetterUpper
+
+    //-------------------------------------validators for each input -----------------------------------------------
+
+    const validateName = (value) => {
+        if(!value) {
+            return 'Name is required'
+        }
+        else if(!regexName.test(value)) {
+            return 'Enter a name with at least 2 charachters without number or special charachters'
+        }
+        else {
+            return null //errors value is epmty
+        }
     }
+
+    const validateEmail = (value) => {
+        if(!value) { //if no value entered
+            return 'An email is required'
+        }
+        else if(!regexEmail.test(value)) { // if value dont meets regex rules
+            return 'Enter a valid email (eg. email@adress.com'
+        }
+        else {
+            return null //errors value is epmty
+        }
+    }
+
+    const validateComment = (value) => {
+        let charsReq = 20
+        let charsleft = charsReq - value.length
+        if(!value) { //if no value entered
+            return 'An comment is required'
+        }
+        else if(value.length < 20) { // if value dont meets regex rules
+            return `You need to enter at least ${charsleft} more charachters`
+        }
+        else {
+            return null //errors value is epmty
+        }
+    }
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
 
 
 
@@ -139,8 +143,8 @@ const ContactFormSection = () => {
     return (
         <section className="contact-us container">
             {
-                canSubmit ?
-                 (<div> thank you {getNameToUpper(contactForm.name)} for your comment!</div>)
+                submitted ?
+                 (<div> Thank you {getNameToUpper(name)}! <br/> Your comment is posted and we will review it as soon as possible.</div>)
                 : 
                 (
                     <>
@@ -148,20 +152,20 @@ const ContactFormSection = () => {
             <form id="form" className="form-theme" onSubmit={handleSubmit} noValidate>
             <div className="d-grid-2">
                 <div className="relative">
-                <input className="" id="name" type="text" placeholder=" " onChange={handleChange} onKeyUp={handleName} value={contactForm.name}/>
+                <input className={errors.name ? 'error-border' : ''} id="name" type="text" placeholder=" " onChange={handleChange} value={name}/>
                 <label htmlFor="name">Your Name</label>
-                <span className="error-msg">{formErrors.name}</span>
+                <span className="error-msg">{errors.name}</span>
                 </div>
                 <div className="relative">
-                <input id="email" type="email" placeholder=" " onChange={handleChange} onKeyUp={handleEmail} value={contactForm.email}/>
+                <input className={errors.email ? 'error-border' : ''} id="email" type="email" placeholder=" " onChange={handleChange} value={email}/>
                 <label htmlFor="email">Your Email</label>
-                <span className="error-msg">{formErrors.email}</span>
+                <span className="error-msg">{errors.email}</span>
                 </div>
             </div>
             <div className="relative">
-                <textarea name="comment" id="comment" className="" placeholder=" " onChange={handleChange} onKeyUp={handleComment} value={contactForm.comment}></textarea>
+                <textarea name="comment" id="comment" className={errors.comment ? 'error-border' : ''} placeholder=" " onChange={handleChange}  value={comment}></textarea>
                 <label htmlFor="comments">Comments</label>
-                <span id="comments-error" className="error-msg">{formErrors.comment}</span>
+                <span id="comments-error" className="error-msg">{errors.comment}</span>
             </div>
                 <div className="relative">
                 <button id="subButton" type="submit" className="btn-theme">Post Comments</button>
