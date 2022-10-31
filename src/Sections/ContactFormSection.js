@@ -13,7 +13,7 @@ const ContactFormSection = () => {
     //regex for name and email inputs
     const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const regexName = /^(?=.{2,50}$)[a-z]+(?:['-\s][a-z]+)*$/i;
-
+    const outputName = name; // for submitted screen
 
     //handles the inputs and sets the value to each variable
     const handleChange = (e) => {
@@ -35,14 +35,12 @@ const ContactFormSection = () => {
     }
 
     //function that takes event and a form variable
-    const validation = (e, form = null) => {
+    const validation = (e, form) => {
         if(e.type === 'submit') {
             const errors = {}
             errors.name = validateName(form.name)
             errors.email = validateEmail(form.email)
             errors.comment = validateComment(form.comment)
-            console.log(form.value)
-            console.log(errors)
             return errors
         }
         else {
@@ -68,6 +66,7 @@ const ContactFormSection = () => {
         if(errors.name === null && errors.email === null && errors.comment === null) {
             setSubmitted(true)
             //resets input states
+            outputName = name;
             setName('')
             setEmail('')
             setComment('')
@@ -120,31 +119,11 @@ const ContactFormSection = () => {
     }
 
 
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
         <section className="contact-us container">
             {
                 submitted ?
-                 (<div> Thank you {getNameToUpper(name)}! <br/> Your comment is posted and we will review it as soon as possible.</div>)
+                 (<div> Thank you {getNameToUpper(outputName)}! <br/> Your comment is posted and we will review it as soon as possible.</div>)
                 : 
                 (
                     <>
