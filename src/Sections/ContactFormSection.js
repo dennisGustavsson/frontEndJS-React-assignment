@@ -1,19 +1,18 @@
 import { useState } from "react"
-import { getNameToUpper } from "../Assets/Scripts/getNameToUpper"
 
 const ContactFormSection = () => {
 
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [comment, setComment] = useState('');
+    const [comments, setComment] = useState('');
     const [errors, setErrors] = useState({});  
-    const [submitted, setSubmitted] = useState(false);
+    const [submit, setSubmitted] = useState(false);
+    const [submitFailed, setFailedSubmitted] = useState(false);
 
     //regex for name and email inputs
     const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const regexName = /^(?=.{2,50}$)[a-z]+(?:['-\s][a-z]+)*$/i;
-    const outputName = name; // for submitted screen
 
     //handles the inputs and sets the value to each variable
     const handleChange = (e) => {
@@ -26,34 +25,31 @@ const ContactFormSection = () => {
             case 'email': 
                 setEmail(value)
                 break;
-            case 'comment':
+            case 'comments':
                 setComment(value)
                 break;
         }
-        //sets the errors in the object
+        //sets the errors in the object onChange
         setErrors({...errors, [id]: validation(e)})
     }
 
     //function that takes event and a form variable
-    const validation = (e, form) => {
+    const validation = (e, form = null) => {
         if(e.type === 'submit') {
             const errors = {}
             errors.name = validateName(form.name)
             errors.email = validateEmail(form.email)
-            errors.comment = validateComment(form.comment)
+            errors.comments = validateComment(form.comments)
             return errors
         }
         else {
             const {id, value} = e.target
             switch(id) {
                 case 'name':
-                    console.log(validateName(value))
                     return validateName(value)
                 case 'email':
-                    console.log(validateEmail(value))
                     return validateEmail(value)
-                case 'comment':
-                    console.log(validateComment(value))
+                case 'comments':
                     return validateComment(value)
             }
         }
@@ -61,19 +57,43 @@ const ContactFormSection = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setErrors(validation(e, {name, email, comment}))
+        setFailedSubmitted(false)
+        setSubmitted(false)
+        setErrors(validation(e, {name, email, comments})) //sets the errors from valitation form
 
-        if(errors.name === null && errors.email === null && errors.comment === null) {
-            setSubmitted(true)
-            //resets input states
-            outputName = name;
+        if(errors.name === null && errors.email === null && errors.comments === null) {
+
+            //makes a json object of our form
+            let json = JSON.stringify({name, email, comments})
+
             setName('')
             setEmail('')
             setComment('')
             setErrors({})
+
+            fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: json
+            })
+
+            .then(response => {
+                if (response.status === 200) {
+                    setSubmitted(true)
+                    setFailedSubmitted(false)
+                }
+                else {
+                    setSubmitted(false)
+                    setFailedSubmitted(true)
+                }
+            })
+            
         } 
         else {
             setSubmitted(false)
+
         }
     }
 
@@ -88,6 +108,7 @@ const ContactFormSection = () => {
             return 'Enter a name with at least 2 charachters without number or special charachters'
         }
         else {
+
             return null //errors value is epmty
         }
     }
@@ -119,15 +140,25 @@ const ContactFormSection = () => {
     }
 
 
+
+
     return (
         <section className="contact-us container">
             {
-                submitted ?
-                 (<div> Thank you {getNameToUpper(outputName)}! <br/> Your comment is posted and we will review it as soon as possible.</div>)
+                submit ?
+                 (<div className="submitted"> <h3>Thank you!</h3> Your comment is posted and we will review it as soon as possible.</div>)
                 : 
-                (
-                    <>
-                    <h3>Come in Contact with Us</h3>
+                (<></>)
+            }
+
+            {
+                submitFailed ?
+                 (<div className="submit-failed"> <h3>Sorry</h3> Your comment couldn't be posted at this moment. Please try again later.</div>)
+                : 
+                (<></>)
+            }
+
+            <h3>Come in Contact with Us</h3>
             <form id="form" className="form-theme" onSubmit={handleSubmit} noValidate>
             <div className="d-grid-2">
                 <div className="relative">
@@ -142,18 +173,15 @@ const ContactFormSection = () => {
                 </div>
             </div>
             <div className="relative">
-                <textarea name="comment" id="comment" className={errors.comment ? 'error-border' : ''} placeholder=" " onChange={handleChange}  value={comment}></textarea>
+                <textarea name="comments" id="comments" className={errors.comments ? 'error-border' : ''} placeholder=" " onChange={handleChange}  value={comments}></textarea>
                 <label htmlFor="comments">Comments</label>
-                <span id="comments-error" className="error-msg">{errors.comment}</span>
+                <span id="comments-error" className="error-msg">{errors.comments}</span>
             </div>
                 <div className="relative">
                 <button id="subButton" type="submit" className="btn-theme">Post Comments</button>
             <span className="error-msg-btn"></span></div> 
 
             </form>
-                    </>
-                )
-            }
         </section>
     )
 }

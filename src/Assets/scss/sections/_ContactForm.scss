@@ -1,5 +1,6 @@
 .contact-us {
     margin-top: 2rem;
+    margin-bottom: 4rem;
     padding-inline: 1rem;
 
     h3 {
@@ -56,9 +57,10 @@
         resize: none;
         border-radius:0;
         border: 1px solid $color-gray-10;
+        margin-top: 1rem;
 
         + label {
-            top: 1rem;
+            top: 2rem;
         }
         &:focus {
             outline: 0;
@@ -126,7 +128,28 @@
     }
 }
 
-#comments-error {
-    top: -10px;
-}
 
+.submitted {
+
+    display: grid;
+    justify-items: center;
+    margin-bottom: 2rem;
+    border: 1px solid rgb(127, 227, 127);
+    box-shadow: $color-drop-shadow;
+    padding: 2rem;
+    h3 {
+        color: $color-theme;
+    }
+}
+.submit-failed {
+
+    display: grid;
+    justify-items: center;
+    margin-bottom: 2rem;
+    border: 1px solid rgb(235, 33, 33);
+    box-shadow: $color-drop-shadow;
+    padding: 2rem;
+    h3 {
+        color: $color-theme;
+    }
+}
