@@ -27,7 +27,9 @@
             margin-inline: auto;
             @include lg {
                 grid-template-columns: repeat(2, 1fr);
+                padding-inline: 0;
             }
+
             .product-img {
                 max-width: 100%;
                 height: 400px;
@@ -44,6 +46,34 @@
                 justify-content: start;
                 align-items: start;
                 flex-direction: column;
+
+                h1 {
+                    font-size: $font-size-24;
+                    font-weight: $font-w-bold;
+                    margin-bottom: 0;
+                }
+
+                .articleNr {
+                    color: $color-gray-5;
+                    font-size: $font-size-13;
+                    margin-top: 0.5rem;
+                }
+                .rating {
+                    margin-top: 0.5rem;
+                    color: $theme-color;
+                }
+
+                .price {
+                    margin-top: 0.5rem;
+                    font-size: $font-size-16;
+                    font-weight: $font-w-semibold;
+                }
+
+                .details {
+                    margin-top: 0.5rem;
+                    color:  $color-gray-15;
+                    font-size: $font-size-16;
+                }
                 .product-form {
                     width: 100%;
                     .btn-secondary {
@@ -60,10 +90,18 @@
                         font-size: $font-size-16;
                         font-weight: $font-w-medium;
                         margin-top: 1rem;
+                        width: 85px;
                     }
                     .choose-size {
                         display: flex;
                         align-items: center;
+                        margin-top: 1rem;
+                    }
+                    .choose-color {
+                        margin-top: 1rem;
+                    }
+                    .quanitity {
+                        margin-top: 1rem;
                     }
                     .btn-theme {
                         width: 100%;
@@ -75,6 +113,9 @@
                         margin-top: 1rem;
                         display: flex;
                         align-items: center;
+                        h4 {
+                            margin: 0;
+                        }
                         .icon-circle {
                             display: flex;
                             justify-content: center;
@@ -85,13 +126,8 @@
                             border-radius: 50%;
                             margin-inline: 0.6rem;
                             a {
-
                                 text-decoration: none;
                                 color: $color-theme-black-1;
-                                
-    
-    
-    
                             }
                         }
 

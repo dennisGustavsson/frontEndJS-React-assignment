@@ -61,40 +61,40 @@ const ContactFormSection = () => {
         setSubmitted(false)
         setErrors(validation(e, {name, email, comments})) //sets the errors from valitation form
 
-        if(errors.name === null && errors.email === null && errors.comments === null) {
+        // if(errors.name === null && errors.email === null && errors.comments === null) {
 
-            //makes a json object of our form
-            let json = JSON.stringify({name, email, comments})
+        //     //makes a json object of our form
+        //     let json = JSON.stringify({name, email, comments})
 
-            setName('')
-            setEmail('')
-            setComment('')
-            setErrors({})
+        //     setName('')
+        //     setEmail('')
+        //     setComment('')
+        //     setErrors({})
 
-            fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: json
-            })
+        //     fetch('https://win22-webapi.azurewebsites.net/api/contactform', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: json
+        //     })
 
-            .then(response => {
-                if (response.status === 200) {
-                    setSubmitted(true)
-                    setFailedSubmitted(false)
-                }
-                else {
-                    setSubmitted(false)
-                    setFailedSubmitted(true)
-                }
-            })
+        //     .then(response => {
+        //         if (response.status === 200) {
+        //             setSubmitted(true)
+        //             setFailedSubmitted(false)
+        //         }
+        //         else {
+        //             setSubmitted(false)
+        //             setFailedSubmitted(true)
+        //         }
+        //     })
             
-        } 
-        else {
-            setSubmitted(false)
+        // } 
+        // else {
+        //     setSubmitted(false)
 
-        }
+        // }
     }
 
 
