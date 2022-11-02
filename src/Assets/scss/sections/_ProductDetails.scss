@@ -18,13 +18,16 @@
 
     .container {
         max-width: 1110px;
+        padding: 0 0.5rem;
+
+
         .product-body {
             display: grid;
             grid-template-columns: 1fr;
-            padding-inline: 0.5rem;
+            // padding-inline: 0.5rem;
             margin-bottom: 4rem;
             // width: 600px;
-            margin-inline: auto;
+            // margin-inline: auto;
             @include lg {
                 grid-template-columns: repeat(2, 1fr);
                 padding-inline: 0;
@@ -44,8 +47,12 @@
             .product-info {
                 display: flex;
                 justify-content: start;
-                align-items: start;
+                align-items: center;
                 flex-direction: column;
+
+                @include md {
+                    align-items: start;
+                }
 
                 h1 {
                     font-size: $font-size-24;
@@ -103,7 +110,7 @@
                     .choose-color {
                         margin-top: 1rem;
                     }
-                    
+
                     .quantity {
                         margin-top: 1rem;
                         
@@ -119,7 +126,7 @@
                             border: 1px solid black;
                             overflow: hidden;
                             .add {
-                                border-right: 1px solid black;
+                                border-left: 1px solid black;
                                 background-color: $color-theme-white;
                                 overflow: hidden;
                                 width: 40px;
@@ -129,14 +136,16 @@
                             }
 
                             .output {
+                                display: inline-block;
                                 font-weight: $font-w-bold;
+                                text-align: center;
+                                width: 50px;
                                 height: 100%;
-                                padding-inline: 1rem;
                                 
                             }
 
                             .sub {
-                                border-left: 1px solid black;
+                                border-right: 1px solid black;
                                 background-color: $color-theme-white;
                                 overflow: hidden;
                                 width: 40px;
@@ -160,6 +169,9 @@
                         margin-top: 1rem;
                         display: flex;
                         align-items: center;
+                        justify-content: space-between;
+                        max-width: 400px;
+
                         h4 {
                             margin: 0;
                         }
@@ -171,7 +183,7 @@
                             width: 40px;
                             background-color: $color-gray-1;
                             border-radius: 50%;
-                            margin-inline: 0.6rem;
+                            // margin-inline: 0.4rem;
                             a {
                                 text-decoration: none;
                                 color: $color-theme-black-1;

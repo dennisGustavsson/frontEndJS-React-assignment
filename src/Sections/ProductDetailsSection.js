@@ -1,11 +1,28 @@
 import { NavLink } from "react-router-dom"
 import { useParams } from "react-router-dom"
+import { useState } from "react"
 import { getNameToUpper } from '../Assets/Scripts/getNameToUpper'
 import ExternalLinkIcon from "../Components/ExternalLinkIcon"
 import TabsMenu from "../Components/TabsMenu"
 import ProductGridSection from "../Sections/ProductGridSection"
 const ProductDetailsSection = () => {
 
+
+    const [count, setCount] = useState(1)
+
+    const handleChange = (e) => {
+        let input = e.target.id;
+
+        switch(input) {
+            case 'add':
+                setCount(count + 1)
+            break
+            case 'sub':
+                setCount(count -1)
+        }
+
+
+    }
 
     const params = useParams()
 
@@ -35,16 +52,16 @@ const ProductDetailsSection = () => {
                     <div className="choose-size">
                       <h4>Size: </h4>
                         <input type="radio" className="btn-check" name="options" id="option1" autoComplete="off"/>
-                        <label className="btn btn-secondary" for="option1">S</label>
+                        <label className="btn btn-secondary" htmlFor="option1">S</label>
 
                         <input type="radio" className="btn-check" name="options" id="option2" autoComplete="off"/>
-                        <label className="btn btn-secondary" for="option2">M</label>
+                        <label className="btn btn-secondary" htmlFor="option2">M</label>
 
                         <input type="radio" className="btn-check" name="options" id="option3" autoComplete="off"/>
-                        <label className="btn btn-secondary" for="option3">L</label>
+                        <label className="btn btn-secondary" htmlFor="option3">L</label>
 
                         <input type="radio" className="btn-check" name="options" id="option4" autoComplete="off"/>
-                        <label className="btn btn-secondary" for="option4">XL</label>
+                        <label className="btn btn-secondary" htmlFor="option4">XL</label>
                     </div>
                     <div className="choose-color">
                       <h4>Color: </h4>
@@ -52,7 +69,13 @@ const ProductDetailsSection = () => {
                     <div className="quantity">
                       <h4>Qty: </h4>
                       <div className="qtyCounter">
-                        <button className="add">-</button><span className="output">?</span><button className="sub">+</button>
+                        {/* disables sub-button if count is 0 */}
+                        <button className="sub" id="sub" onClick={handleChange} type="button" disabled={count === 0 ? true : ""}>-</button>
+                        <div className="output">
+                            {count}
+                        </div>
+                        {/* disables add-button if count is bigger than 10 */}
+                        <button onClick={handleChange} className="add" id="add" type="button" disabled={count >= 10 ? true : ""}>+</button>
                       </div>
                       <NavLink to="" className="btn-theme">ADD TO CART</NavLink>
                     </div>
