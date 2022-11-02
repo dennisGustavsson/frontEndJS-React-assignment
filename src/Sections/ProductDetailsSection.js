@@ -13,7 +13,7 @@ const ProductDetailsSection = () => {
     <>
     <div className="product">
           <div className="container">
-            <div className="product-body d-none">
+            <div className="product-body">
               <div className="product-img"></div>
               <div className="product-info">
                 <h1>{getNameToUpper(params.name.replace(/-/g, " "))}</h1>
@@ -51,8 +51,12 @@ const ProductDetailsSection = () => {
                     </div>
                     <div className="quantity">
                       <h4>Qty: </h4>
+                      <div className="qtyCounter">
+                        <button className="add">-</button><span className="output">?</span><button className="sub">+</button>
+                      </div>
+                      <NavLink to="" className="btn-theme">ADD TO CART</NavLink>
                     </div>
-                    <NavLink to="" className="btn-theme">ADD TO CART</NavLink>
+                   
                   </form>
                   <div className="shareSocialMedia">
                     <h4>Share: </h4>    
@@ -60,16 +64,16 @@ const ProductDetailsSection = () => {
                         <ExternalLinkIcon link="https://facebook.com" icon="fa-brands fa-facebook-f"/>
                     </div>
                     <div className="icon-circle">
-                        <ExternalLinkIcon link="https://facebook.com" icon="fa-brands fa-instagram"/>
+                        <ExternalLinkIcon link="https://instagram.com" icon="fa-brands fa-instagram"/>
                     </div>
                     <div className="icon-circle">
-                        <ExternalLinkIcon link="https://facebook.com" icon="fa-brands fa-twitter"/>
+                        <ExternalLinkIcon link="https://twitter.com" icon="fa-brands fa-twitter"/>
                     </div>
                     <div className="icon-circle">
-                        <ExternalLinkIcon link="https://facebook.com" icon="fa-brands fa-google"/>
+                        <ExternalLinkIcon link="https://google.com" icon="fa-brands fa-google"/>
                     </div>
                     <div className="icon-circle">
-                        <ExternalLinkIcon link="https://facebook.com" icon="fa-brands fa-linkedin"/>
+                        <ExternalLinkIcon link="https://linkedin.com" icon="fa-brands fa-linkedin"/>
                     </div> 
                   </div>
 
@@ -78,21 +82,13 @@ const ProductDetailsSection = () => {
               </div>  
             </div>
             <TabsMenu />
-            <div className="prod-description d-none">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magni in ipsa
-                , sit hic aliquid enim suscipit vero reprehenderit modi. Nostrum illum repellat, minus corrupti facere,
-                    in est ipsam obcaecati, assumenda quo tempore reiciendis tempora adipisci?
-                    Blanditiis non laborum, doloremque officiis quisquam veniam? Veniam possimus architecto dolores,
-                    saepe earum accusamus odio, quibusdam inventore minus ipsam, itaque voluptatibus molestias soluta.
-                    Accusamus dolor esse tenetur necessitatibus quam itaque aliquid quidem repellat hic libero quod officiis veniam impedit quo placeat, perferendis obcaecati, a velit repellendus assumenda molestias saepe, 
-                cum amet? Commodi itaque est eaque harum atque, obcaecati magni, quis ex tempora, ut vitae!
-            </div>
+
             <div className="product-grid">
                 {/* <ProductGridSection /> */}
             </div>
-          </div>
-
         </div>
+
+    </div>
     </>
   )
 }

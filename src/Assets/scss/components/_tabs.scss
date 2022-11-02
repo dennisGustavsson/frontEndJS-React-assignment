@@ -3,22 +3,46 @@
 
 
     .tabs {
-        padding: 1rem;
-        height: 300px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        padding-inline: 0.5rem;
+        // height: 300px;
+        // width: 100%;
+
+        @include lg {
+            padding: 0;
+        }
+
 
         .navigation {
             display: flex;
-            justify-content: start;
-            background-color: $color-theme-white;
-            width: 60%;
+            justify-content: space-around;
+            position: relative;
+            width: 100%;
             padding: 0;
+            @include lg {
+                display: inline;
+            }
+
+            &:after {
+                content: ' ';
+                bottom:0;
+                left: 0;
+                position: absolute;
+                border-bottom: 1px solid $color-gray-5;
+                width: inherit;
+                z-index: -1;
+
+                @include lg {
+                    bottom: -1px;
+                }
+            }
             li {
+                display: inline;
+                font-weight: $font-w-medium;
                 margin-right: 2rem;
                 list-style: none;
+                font-size: $font-size-13;
+
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -26,11 +50,19 @@
                     border-bottom: 1px solid $theme-color;
                     color: $theme-color;
                 }
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                @include lg {
+                    font-size: $font-size-16;
+                }
             }
 
         }
         .outlet {
-            padding: 1rem;
+            padding-top: 1rem;
+            line-height: 2rem;
         }
     
     }

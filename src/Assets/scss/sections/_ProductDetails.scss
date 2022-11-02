@@ -76,6 +76,9 @@
                 }
                 .product-form {
                     width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
                     .btn-secondary {
                         background-color: $color-theme-white;
                         border-radius: 0;
@@ -100,15 +103,59 @@
                     .choose-color {
                         margin-top: 1rem;
                     }
-                    .quanitity {
+                    
+                    .quantity {
                         margin-top: 1rem;
-                    }
-                    .btn-theme {
-                        width: 100%;
+                        
+
                         @include lg {
-                            max-width: 220px;
+                            display: flex;
+                            height: 50px;
                         }
+                        
+                        .qtyCounter {
+                            display: inline-block;
+                            height: 50px;
+                            border: 1px solid black;
+                            overflow: hidden;
+                            .add {
+                                border-right: 1px solid black;
+                                background-color: $color-theme-white;
+                                overflow: hidden;
+                                width: 40px;
+                                height: 100%;
+                                font-size: $font-size-20;
+                                font-weight: $font-w-semibold
+                            }
+
+                            .output {
+                                font-weight: $font-w-bold;
+                                height: 100%;
+                                padding-inline: 1rem;
+                                
+                            }
+
+                            .sub {
+                                border-left: 1px solid black;
+                                background-color: $color-theme-white;
+                                overflow: hidden;
+                                width: 40px;
+                                height: 100%;
+                                font-size: $font-size-20;
+                                font-weight: $font-w-semibold;
+                            }
+                        }
+
+                        .btn-theme {
+                            min-height: 50px;
+                            width: 100%;
+                            @include lg {
+                                max-width: 220px;
+                            }
+                        }
+
                     }
+
                     .shareSocialMedia {
                         margin-top: 1rem;
                         display: flex;

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import AdditionalTab from "./AllTabs/AdditionalTab";
 import DescriptionTab from "./AllTabs/DescriptionTab";
+import Reviews from "./AllTabs/Reviews";
+import ShopAndReturns from "./AllTabs/ShopAndReturns";
 
 const TabsMenu = () => {
     //states to toggle which tab is active
@@ -20,11 +22,22 @@ const TabsMenu = () => {
             <ul className="navigation">
                 <li id="tab1" onClick={handleToggle} className={activeTab === 'tab1' ? 'active' : ''}>Description</li>
                 <li id="tab2" onClick={handleToggle} className={activeTab === 'tab2' ? 'active' : ''}>Additional</li>
+                <li id="tab3" onClick={handleToggle} className={activeTab === 'tab3' ? 'active' : ''}>Shopping & Returns</li>
+                <li id="tab4" onClick={handleToggle} className={activeTab === 'tab4' ? 'active' : ''}>Reviews</li>
             </ul>
 
             <div className="outlet">
             {
-                activeTab === 'tab1' ? <DescriptionTab/> : <AdditionalTab/>
+                activeTab === 'tab1' ? <DescriptionTab/> : <></>
+            }
+            {
+                activeTab === 'tab2' ? <AdditionalTab/> : <></>
+            }
+            {
+                activeTab === 'tab3' ? <ShopAndReturns/> : <></>
+            }
+            {
+                activeTab === 'tab4' ? <Reviews/> : <></>
             }
             </div>
 
