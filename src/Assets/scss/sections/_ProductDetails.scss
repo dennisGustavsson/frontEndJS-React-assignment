@@ -125,6 +125,8 @@
                             height: 50px;
                             border: 1px solid black;
                             overflow: hidden;
+                            margin-right: 2rem;
+
                             .add {
                                 border-left: 1px solid black;
                                 background-color: $color-theme-white;
@@ -132,9 +134,9 @@
                                 width: 40px;
                                 height: 100%;
                                 font-size: $font-size-20;
-                                font-weight: $font-w-semibold
+                                font-weight: $font-w-semibold;
+                               
                             }
-
                             .output {
                                 display: inline-block;
                                 font-weight: $font-w-bold;
@@ -152,6 +154,7 @@
                                 height: 100%;
                                 font-size: $font-size-20;
                                 font-weight: $font-w-semibold;
+                                
                             }
                         }
 
@@ -166,7 +169,7 @@
                     }
 
                     .shareSocialMedia {
-                        margin-top: 1rem;
+                        margin-top: 2rem;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;

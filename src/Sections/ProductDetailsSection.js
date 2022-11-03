@@ -68,6 +68,9 @@ const ProductDetailsSection = () => {
                     </div>
                     <div className="quantity">
                       <h4>Qty: </h4>
+
+
+
                       <div className="qtyCounter">
                         {/* disables sub-button if count is 0 */}
                         <button className="sub" id="sub" onClick={handleChange} type="button" disabled={count === 0 ? true : ""}>-</button>
