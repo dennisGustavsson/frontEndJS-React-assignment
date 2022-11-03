@@ -69,7 +69,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 
-    @include md {
+    @include lg {
         gap: 2rem;
         grid-template-columns: 1fr 1fr;  
     }
