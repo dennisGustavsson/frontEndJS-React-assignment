@@ -4,10 +4,29 @@ import { useState } from "react"
 import { getNameToUpper } from '../Assets/Scripts/getNameToUpper'
 import ExternalLinkIcon from "../Components/ExternalLinkIcon"
 import TabsMenu from "../Components/TabsMenu"
-import ProductGridSection from "../Sections/ProductGridSection"
-const ProductDetailsSection = () => {
+
+  /* const {id} =  useparams 
+  
+  usestate - [prods, setprods]
+
+  useeffect(() => {
+
+    const fetchadatan >  async 
+        res awat fetch(adress {id})  apiadreess med artNr
+        setprod awit res.json
+      fetchadatan()
+
+  },[])  < inte spamma
+  
 
 
+  NU går det få ut product.imgName osv osv 
+  */
+
+
+const ProductDetailsSection = ({item}) => {
+
+    //
     const [count, setCount] = useState(1)
 
     const handleChange = (e) => {
@@ -23,7 +42,7 @@ const ProductDetailsSection = () => {
 
 
     }
-
+    
     const params = useParams()
 
   return (
@@ -31,18 +50,22 @@ const ProductDetailsSection = () => {
     <div className="product">
           <div className="container">
             <div className="product-body">
-              <div className="product-img"></div>
+              <div className="product-img">
+                <img src={params.imageName} alt={params.name} />
+                
+              </div>
               <div className="product-info">
                 <h1>{getNameToUpper(params.name.replace(/-/g, " "))}</h1>
                 <span className="articleNr">SKU: 12345670 BRAND: The Northland</span>
                 <div className="rating">
+                  {params.rating}
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                   <i className="fa-solid fa-star"></i>
                 </div>
-                <span className="price">$35.00</span>
+                <span className="price">{params.price}</span>
                 <p className="details">Discovered had get considered projection who favourable. 
                   Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. 
                   Use off agreeable law unwilling sir deficient curiosity instantly. (read more) 

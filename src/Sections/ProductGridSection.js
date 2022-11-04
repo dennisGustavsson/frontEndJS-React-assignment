@@ -1,6 +1,11 @@
+import { useContext } from "react"
 import ProductCard from "../Components/ProductCard"
+import { ProductContext} from "../Contexts/Context"
 
-const ProductGridSection = ({title, products}) => {
+
+const ProductGridSection = ({title, items = []}) => {
+  const productContext = useContext(ProductContext)
+
 
   return (
     <section className="product-grid">
@@ -8,8 +13,10 @@ const ProductGridSection = ({title, products}) => {
         <h2 className="section-title">{title}</h2>
 
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">  
-
-          {products.map(product => <ProductCard key={product.id} item={product}/> )}
+          
+          {
+          items.map( products => <ProductCard key={products.articleNumber} item={products} /> )
+          }
 
         </div>
 

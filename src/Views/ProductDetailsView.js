@@ -4,9 +4,26 @@ import MainMenuSection from "../Sections/MainMenuSection"
 import BreadcrumbSection from "../Sections/BreadcrumbSection"
 import ProductDetailsSection from "../Sections/ProductDetailsSection"
 import { getNameToUpper } from "../Assets/Scripts/getNameToUpper"
-const ProductDetailsView = ({}) => {
+
+const ProductDetailsView = ({item}) => {
+
+  /* const {id} =  useparams 
+  
+  usestate - [prods, setprods]
+
+  useeffect(() => {
+
+    const fetchadatan >  async 
+        res awat fetch(adress {id})  apiadreess med artNr
+        setprod awit res.json
+      fetchadatan()
+
+  },[])  < inte spamma
+  
 
 
+  NU går det få ut product.imgName osv osv 
+  */
   const params = useParams()
 
       /* window title  */

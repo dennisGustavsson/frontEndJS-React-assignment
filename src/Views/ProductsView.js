@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { ProductContext } from "../Contexts/Context";
 import { FooterSection } from "../Sections/FooterSection"
 import MainMenuSection from "../Sections/MainMenuSection"
-const ProductsView = () => {
+import ProductGridSection from "../Sections/ProductGridSection";
+
+const ProductsView = ({title}) => {
+  const productContext = useContext(ProductContext)
 
       /* window title  */
       window.top.document.title = 'Product | Fixxo';
@@ -8,6 +13,7 @@ const ProductsView = () => {
   return (
     <>
     <MainMenuSection/>
+    <ProductGridSection title='Products' items={productContext.allProducts} />
     <FooterSection/>
     </>
   )
