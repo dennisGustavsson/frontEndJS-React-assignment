@@ -1,28 +1,38 @@
 .showcase {
-    position: relative;
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
     padding-top: 80px;
+    background-image: linear-gradient(90deg, $color-gradient-dark, $color-gradient-light);
 
-    #hide-img {
-        display: none;
-    }
-    // responsiveness for larger screens
-    @include lg {
-        margin-inline: auto;
-        flex-direction:row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        max-width: 90%;
-        img {
-            max-width: 60%;
-        }
+    .showcaseWrap {
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+
         #hide-img {
-            display: block;
-        }
+            display: none;
+            }
+        
+            // responsiveness for larger screens
+        @include lg {
+            margin-inline: auto;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            max-width: 90%;
+    
+            img {
+                max-width: 60%;
+            }
+    
+            #hide-img {
+                display: block;
+            }
+        }   
+
     }
 
 .showcase-items {

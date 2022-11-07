@@ -1,21 +1,26 @@
 import { useContext } from "react";
 import { ProductContext } from "../Contexts/Context";
-import { FooterSection } from "../Sections/FooterSection"
-import MainMenuSection from "../Sections/MainMenuSection"
+import { FooterSection } from "../Sections/FooterSection";
+import MainMenuSection from "../Sections/MainMenuSection";
 import ProductGridSection from "../Sections/ProductGridSection";
+import { useProductContext } from "../Contexts/ProductContext";
+import { useEffect } from "react";
+const ProductsView = ({ title }) => {
+  const { products, getProducts } = useProductContext();
 
-const ProductsView = ({title}) => {
-  const productContext = useContext(ProductContext)
+  /* window title  */
+  window.top.document.title = "Product | Fixxo";
 
-      /* window title  */
-      window.top.document.title = 'Product | Fixxo';
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <>
-    <MainMenuSection/>
-    <ProductGridSection title='Products' items={productContext.allProducts} />
-    <FooterSection/>
+      <MainMenuSection />
+      <ProductGridSection title='Products' items={products} />
+      <FooterSection />
     </>
-  )
-}
-export default ProductsView
+  );
+};
+export default ProductsView;
