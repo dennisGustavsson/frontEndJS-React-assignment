@@ -14,7 +14,7 @@ const ProductCard = ({ item }) => {
 
     return (
         <>
-            <div className="col">
+            <div className="product-grid">
                 <div className="product-card">
                     <div className="product-img">
                         <img src={item.imageName} alt={item.name} />

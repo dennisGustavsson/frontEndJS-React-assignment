@@ -36,7 +36,6 @@ const HomeView = () => {
       <Jumbotron2Section />
       <OurSpecialitySection />
       <FlashSaleSection1 />
-      <ProductGridSection title='Top Products' items={featuredProducts} />
       <FlashSaleSection2 />
       <FlashSaleSection3 />
       <ServiceSection />
