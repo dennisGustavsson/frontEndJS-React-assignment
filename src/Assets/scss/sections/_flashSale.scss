@@ -1,10 +1,19 @@
+.flexEnd {
+    @include lg {
+        justify-content: end !important;
+    }
+
+}
+
 .flash-sale {
     background-color: $color-theme-white;
     height: 100%;
     max-width: 1600px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     margin-inline: auto;
+
+
 
     h2 {
         padding-top: 0;
@@ -14,8 +23,8 @@
     .flash-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 2rem;
-        
+        gap: 1rem;
+
         margin-block: 2rem;
         grid-template-areas:
             "flashsale"
@@ -24,8 +33,9 @@
         @include lg {
             grid-template-columns: auto auto;
 
-            grid-template-areas: 
+            grid-template-areas:
                 "flashsale products";
+
             &.reverse-grid {
                 grid-template-areas:
                     "products flashsale";
@@ -34,8 +44,8 @@
 
 
         .flash-advert {
-            height: 100%;
-            width: 850px;
+            height: 200px;
+            width: 785px;
             justify-self: end;
             grid-area: flashsale;
             background-color: $color-gray-10;
@@ -43,6 +53,10 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+
+            @include lg {
+                height: 100%;
+            }
 
 
             h2 {
@@ -56,19 +70,17 @@
 
         .product-grid {
             grid-template-columns: auto auto;
-            // justify-self: ;
-            // gap: 1rem;
-            
+
 
             .product-card {
                 display: grid;
-                width: 250px;
+                min-width: 250px;
                 text-align: start;
                 padding: 0;
-                
+
 
                 .product-img {
-                    height: 210px;
+                    min-height: 210px;
                 }
 
                 .product-info {
@@ -111,7 +123,6 @@
 }
 
 /* --------------------------- UP TO 70 OFF SECTION ------------------------ */
-
 .flash-grid-center {
     display: flex;
     flex-direction: column;
@@ -127,7 +138,7 @@
         flex-direction: column;
         padding-block: 4rem;
         padding-inline: 1rem;
-        width: 70%;
+        width: 80%;
         margin-bottom: 2rem;
 
         h2 {
@@ -146,21 +157,34 @@
         }
     }
 
-    .product-grid {
+
+    // TODO fixa hover för dessa små cards menu icons
+
+
+
+    .product-grid-col {
+        width: 80%;
         display: grid;
-        grid-template-columns: repeat(3, 400px);
-        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr)
+            /* auto auto auto */
+        ;
+        grid-auto-rows: auto;
+
+        .product-grid {
+            display: flex;
+            flex-direction: column;
+        }
 
         .product-card {
             display: grid;
             align-items: center;
             text-align: start;
-            grid-template-columns: 1fr 2fr;
-            overflow: initial;
+            grid-template-columns: auto 1fr;
 
             .product-img {
-                height: 200px;
+                height: 160px;
                 width: 200px;
+                margin-right: 1rem;
             }
 
             .product-info {
@@ -169,14 +193,14 @@
 
             .category-title {
                 font-size: $font-size-13;
-                margin: 0.5rem 0 0.5rem 1rem;
+                // margin: 0.5rem 0 0.5rem 1rem;
             }
 
             h3 {
                 font-size: $font-size-16;
                 line-height: 1.8rem;
                 font-weight: $font-w-semibold;
-                margin: 0.5rem 0 0.5rem 1rem;
+                // margin: 0.5rem 0 0.5rem 1rem;
             }
 
             .ratings {
@@ -190,7 +214,7 @@
 
             .new-price {
                 font-size: $font-size-18;
-                margin: 0.5rem 0 0.5rem 1rem;
+                // margin: 0.5rem 0 0.5rem 1rem;
             }
         }
     }

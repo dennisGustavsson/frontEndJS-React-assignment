@@ -4,16 +4,14 @@ import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const FlashSaleSection1 = () => {
-  const { featuredProducts, getFeaturedProducts, products, getProducts } =
+  const { featuredProducts, getFeaturedProducts } =
     useProductContext();
 
   useEffect(() => {
     getFeaturedProducts(4);
   }, []);
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+
   return (
     <>
       <section className='flash-sale'>

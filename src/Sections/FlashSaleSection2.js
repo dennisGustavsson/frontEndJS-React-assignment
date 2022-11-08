@@ -1,23 +1,22 @@
-import { NavLink } from "react-router-dom"
-import ProductCard from "../Components/ProductCard"
-import ProductGridSection from "./ProductGridSection"
+import { NavLink } from "react-router-dom";
+import ProductGridSection from "./ProductGridSection";
 import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const FlashSaleSection2 = () => {
-    const { featuredProducts, getFeaturedProducts, products, getProducts } =
-      useProductContext();
+  const { featuredProducts, getFeaturedProducts, products, getProducts } =
+    useProductContext();
 
-    useEffect(() => {
-      getFeaturedProducts(4);
-    }, []);
+  useEffect(() => {
+    getFeaturedProducts(4);
+  }, []);
 
-    useEffect(() => {
-      getProducts();
-    }, []);
+  useEffect(() => {
+    getProducts();
+  }, []);
   return (
     <>
-      <section className='flash-sale'>
+      <section className='flash-sale flexEnd'>
         <div className='flash-grid reverse-grid'>
           <ProductGridSection items={featuredProducts} />
           <div className='flash-advert'>
@@ -29,5 +28,5 @@ const FlashSaleSection2 = () => {
       </section>
     </>
   );
-}
-export default FlashSaleSection2
+};
+export default FlashSaleSection2;
