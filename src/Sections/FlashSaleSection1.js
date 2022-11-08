@@ -16,7 +16,7 @@ const FlashSaleSection1 = () => {
   }, []);
   return (
     <>
-      <section className='flash-sale container'>
+      <section className='flash-sale'>
         <div className='flash-grid'>
           <div className='flash-advert'>
             <h2>2 FOR $29.00</h2>

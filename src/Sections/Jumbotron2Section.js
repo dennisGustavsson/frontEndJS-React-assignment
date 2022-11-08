@@ -2,7 +2,7 @@ import pamelaImg from '../Assets/images/img-3.svg'
 import consciousImg from '../Assets/images/img-4.svg'
 const Jumbotron2Section = () => {
   return (
-    <section className="jumbotron container">
+    <section className="jumbotron">
         <div className="jumbo-content pamela">
             <img src={pamelaImg} alt=""/>
             <div className="jumbo-text">

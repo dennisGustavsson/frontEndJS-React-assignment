@@ -1,30 +1,31 @@
 .flash-sale {
     background-color: $color-theme-white;
-    width: 100%;
     height: 100%;
+    max-width: 1600px;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
 
-    // margin-block: 2rem;
     h2 {
         padding-top: 0;
         margin: 0;
     }
 
     .flash-grid {
-        display: flex;
-        height: 100%;
-        width: 100%;
-        // grid-template-columns: 1fr;
-        // gap: 2rem;
-        // margin-block: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        
+        margin-block: 2rem;
         grid-template-areas:
             "flashsale"
             "products";
 
         @include lg {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: auto auto;
 
-            // grid-template-areas: 
-            //     "flashsale products";
+            grid-template-areas: 
+                "flashsale products";
             &.reverse-grid {
                 grid-template-areas:
                     "products flashsale";
@@ -33,8 +34,9 @@
 
 
         .flash-advert {
-            height: 660px;
-            width: 820px;
+            height: 100%;
+            width: 850px;
+            justify-self: end;
             grid-area: flashsale;
             background-color: $color-gray-10;
             display: flex;
@@ -54,15 +56,24 @@
 
         .product-grid {
             grid-template-columns: auto auto;
+            // justify-self: ;
+            // gap: 1rem;
+            
 
             .product-card {
                 display: grid;
-                max-width: 250px;
+                width: 250px;
                 text-align: start;
-                padding-top: 0;
+                padding: 0;
+                
+
+                .product-img {
+                    height: 210px;
+                }
 
                 .product-info {
                     padding: 0;
+
                     span {
                         font-size: $font-size-13;
                     }

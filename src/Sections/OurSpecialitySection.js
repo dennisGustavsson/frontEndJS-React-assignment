@@ -4,7 +4,7 @@ const OurSpecialitySection = () => {
   return (
 <section className="speciality">
 <h2 className="section-title">Our speciality</h2>
-    <div className="service-content container">
+    <div className="service-content">
         <div className="service-card">
             <div className="service-info">
                 <h2>Track Your Order</h2>
