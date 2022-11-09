@@ -1,16 +1,20 @@
 import { NavLink } from "react-router-dom";
+import { currencyFormatter } from "../Assets/Scripts/CurrencyFormatter";
+import { useShoppingCart } from "../Contexts/ShoppingCartContext";
 
 const ProductCard = ({ item }) => {
 
-    const addToWishlist = (e) => {
-        console.log(`added to wishlist`);
-    }
-    const addToCompare = (e) => {
-        console.log('added compare');
-    }
-    const addToCart = (e) => {
-        console.log('added to shopping cart');
-    }
+    const {incrementQuantity} = useShoppingCart()
+
+    // const addToWishlist = (e) => {
+    //     console.log(`added to wishlist`);
+    // }
+    // const addToCompare = (e) => {
+    //     console.log('added compare');
+    // }
+    // const addToCart = (e) => {
+    //     console.log('added to shopping cart');
+    // }
 
     return (
         <>
@@ -19,9 +23,9 @@ const ProductCard = ({ item }) => {
                     <div className="product-img">
                         <img src={item.imageName} alt={item.name} />
                         <div className="card-menu">
-                            <button onClick={addToWishlist} className="menu-icon" to="/wishlist"><i className="fa-regular fa-heart"></i></button>
-                            <button onClick={addToCompare} className="menu-icon" to="/compare"><i className="fa-regular fa-code-compare"></i></button>
-                            <button onClick={addToCart} className="menu-icon" to="shoppingcart"><i className="fa-regular fa-shopping-bag"></i></button>
+                            <button className="menu-icon" to="/wishlist"><i className="fa-regular fa-heart"></i></button>
+                            <button className="menu-icon" to="/compare"><i className="fa-regular fa-code-compare"></i></button>
+                            <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className="menu-icon" to="shoppingcart"><i className="fa-regular fa-shopping-bag"></i></button>
                         </div>
                         <NavLink to={`/products/${item.articleNumber.toLowerCase().replace(/\s/g, "-")}`} className="btn-theme">Quick view</NavLink>
                     </div>
@@ -37,7 +41,8 @@ const ProductCard = ({ item }) => {
                             <i className="fa-solid fa-star"></i>
                         </div>
                         <div className="old-price"></div>
-                        <div className="new-price">{item.price}</div>
+                        <div className="new-price">{}</div>
+                        <div className="new-price">{currencyFormatter(item.price)}</div>
                     </div>
                 </div>
             </div>

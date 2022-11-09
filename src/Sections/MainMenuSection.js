@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import MenuIcon from "../Components/MenuIcon";
+import { useShoppingCart } from "../Contexts/ShoppingCartContext";
 
 const MainMenuSection = () => {
+  const { cartQuantity } = useShoppingCart();
+
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -50,15 +53,34 @@ const MainMenuSection = () => {
           />
           <MenuIcon
             hideMobile='true'
-            quantity={3}
+            quantity={null}
             link='/wishlist'
             icon='fa-regular fa-heart'
           />
-          <MenuIcon
+          <button
+            className='menu-icon'
+            type='button'
+            data-bs-toggle='offcanvas'
+            data-bs-target='#shoppingCart'
+            aria-controls='shoppingCart'
+          >
+            <span className=' position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme'>
+              {cartQuantity >= 1 ? cartQuantity : null}
+            </span>
+            <i className='fa-regular fa-shopping-bag'></i>
+          </button>
+
+          {/* <MenuIcon
             quantity={1}
             link='/shoppingcart'
             icon='fa-regular fa-shopping-bag'
-          />
+          /> */}
+          {/* <NavLink className='menu-icon' to='/shoppingcart' end>
+            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme'>
+              0
+            </span>
+            <i className='fa-regular fa-shopping-bag'></i>
+          </NavLink> */}
 
           <button
             onClick={toggleMenu}

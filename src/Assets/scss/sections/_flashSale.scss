@@ -180,11 +180,16 @@
             align-items: center;
             text-align: start;
             grid-template-columns: auto 1fr;
+            overflow: hidden;
 
             .product-img {
-                height: 160px;
+                height: 190px;
                 width: 200px;
                 margin-right: 1rem;
+                
+                // img {
+                //     object-fit:contain;
+                // }
             }
 
             .product-info {

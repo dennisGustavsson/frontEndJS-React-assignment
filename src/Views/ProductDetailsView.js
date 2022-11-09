@@ -4,46 +4,37 @@ import MainMenuSection from "../Sections/MainMenuSection"
 import BreadcrumbSection from "../Sections/BreadcrumbSection"
 import ProductDetailsSection from "../Sections/ProductDetailsSection"
 import { getNameToUpper } from "../Assets/Scripts/getNameToUpper"
+import { useProductContext } from "../Contexts/ProductContext"
+import { useEffect } from "react"
 
-const ProductDetailsView = ({item}) => {
+const ProductDetailsView = () => {
+    const { id } = useParams()
+    const { product, getProduct } = useProductContext();
 
-  /* const {id} =  useparams 
-  
-  usestate - [prods, setprods]
-
-  useeffect(() => {
-
-    const fetchadatan >  async 
-        res awat fetch(adress {id})  apiadreess med artNr
-        setprod awit res.json
-      fetchadatan()
-
-  },[])  < inte spamma
-  
+      useEffect(() => {
+        getProduct(id);
+      }, []);
 
 
-  NU går det få ut product.imgName osv osv 
-  */
   const params = useParams()
 
-      /* window title  */
-      window.top.document.title = `${getNameToUpper(params.name.replace(/-/g, " "))} | Fixxo`;
+      // /* window title  */
+      // window.top.document.title = `${getNameToUpper(product.name.replace(/-/g, " "))} | Fixxo`;
 
     
 
   return (
     <>
-    
-    <MainMenuSection/>
-    <div className="miniAd">
-      <div className="container">
-        <span>Get 25% OFF at the Fixxo Selection - Shop Now!</span>
+      <MainMenuSection />
+      <div className='miniAd'>
+        <div className='container'>
+          <span>Get 25% OFF at the Fixxo Selection - Shop Now!</span>
+        </div>
       </div>
-    </div>
-    <BreadcrumbSection currentPage={ getNameToUpper(params.name.replace(/-/g, " ")) }/>
-    <ProductDetailsSection/>
-    <FooterSection/>
+      <BreadcrumbSection currentPage={getNameToUpper(product.name)} />
+      <ProductDetailsSection item={product} />
+      <FooterSection />
     </>
-  )
+  );
 }
 export default ProductDetailsView
