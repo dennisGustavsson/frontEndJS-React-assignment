@@ -4,8 +4,6 @@
 
     .tabs {
         padding-inline: 0.5rem;
-        // height: 300px;
-        // width: 100%;
 
         @include lg {
             padding: 0;
@@ -18,13 +16,14 @@
             position: relative;
             width: 100%;
             padding: 0;
+
             @include lg {
                 display: inline;
             }
 
             &:after {
                 content: ' ';
-                bottom:0;
+                bottom: 0;
                 left: 0;
                 position: absolute;
                 border-bottom: 1px solid $color-gray-5;
@@ -35,6 +34,7 @@
                     bottom: -1px;
                 }
             }
+
             li {
                 display: inline;
                 font-weight: $font-w-medium;
@@ -46,10 +46,12 @@
                 &:hover {
                     cursor: pointer;
                 }
+
                 &.active {
                     border-bottom: 1px solid $theme-color;
                     color: $theme-color;
                 }
+
                 &:last-child {
                     margin-right: 0;
                 }
@@ -60,18 +62,20 @@
             }
 
         }
+
         .outlet {
             padding-top: 1rem;
             line-height: 2rem;
+            margin-bottom: 4rem;
         }
-    
+
     }
 
     .firstTab {
         color: black;
     }
+
     .secondTab {
         color: black;
     }
 }
-

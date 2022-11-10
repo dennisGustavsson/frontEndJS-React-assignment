@@ -13,19 +13,17 @@ import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const HomeView = () => {
-  const { featuredProducts, getFeaturedProducts, getProducts } =
+  const { featuredProducts, getFeaturedProducts } =
     useProductContext();
 
   /* window title  */
   window.top.document.title = "Home | Fixxo";
 
   useEffect(() => {
-    getFeaturedProducts(4);
+    getFeaturedProducts(8);
   }, []);
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+
 
   return (
     <>

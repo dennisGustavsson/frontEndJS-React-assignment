@@ -3,7 +3,7 @@ import secondJumboImg from '../Assets/images/img-6.svg';
 
 const Jumbotron1Section = () => {
   return (
-<section className="jumbotron d-none">
+<section className="jumbotron">
   <div className="jumbo-content">
     <img src={firstJumboImg} alt=""/>
     <div className="jumbo-text">

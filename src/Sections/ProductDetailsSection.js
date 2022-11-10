@@ -1,18 +1,13 @@
-import { NavLink } from "react-router-dom"
-import { useState } from "react"
-import { getNameToUpper } from '../Assets/Scripts/getNameToUpper'
-import ExternalLinkIcon from "../Components/ExternalLinkIcon"
-import TabsMenu from "../Components/TabsMenu"
-import { currencyFormatter } from "../Assets/Scripts/CurrencyFormatter"
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { getNameToUpper } from "../Assets/Scripts/getNameToUpper";
+import ExternalLinkIcon from "../Components/ExternalLinkIcon";
+import TabsMenu from "../Components/TabsMenu";
+import { currencyFormatter } from "../Assets/Scripts/CurrencyFormatter";
 
-
-
-const ProductDetailsSection = ({item}) => {
-
-
-    // variable for star-rating
-    const ratingAmount = item.rating;
-
+const ProductDetailsSection = ({ item }) => {
+  // variable for star-rating
+  const ratingAmount = item.rating;
 
   //cant get this to work on the product title
   //Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'toLowerCase')
@@ -27,7 +22,7 @@ const ProductDetailsSection = ({item}) => {
   //   return firstLetterUpper;
   // };
 
-  // 
+  //
   const [count, setCount] = useState(1);
 
   const handleChange = (e) => {
@@ -48,17 +43,39 @@ const ProductDetailsSection = ({item}) => {
         <div className='container'>
           <div className='product-body'>
             <div className='product-img'>
-              <img src={item.imageName} alt={item.name} />
+              <img
+                className='hero-image'
+                src={item.imageName}
+                alt={item.name}
+              />
+              <div className='details'>
+                {" "}
+                <img
+                  className='detail-image'
+                  src={item.imageName}
+                  alt={item.name}
+                />
+                <img
+                  className='detail-image'
+                  src={item.imageName}
+                  alt={item.name}
+                />
+                <img
+                  className='detail-image'
+                  src={item.imageName}
+                  alt={item.name}
+                />
+              </div>
             </div>
             <div className='product-info'>
               <h1>{item.name}</h1>
-              {/* <h1>{getNameToUpper(item.name)}</h1> */}
+              {/* <h1>{getNameToUpper(item.name)}</h1> CANT GET THIS TO WORK PROPERLY */}
               <span className='articleNr'>{item.articleNumber}</span>
               <div className='rating'>
                 {/* used this :
                 https://blog.logrocket.com/build-a-half-star-rating-component-in-react-from-scratch/ */}
                 {[...new Array(ratingAmount)].map((arr, star) => {
-                  console.log(star)
+                  console.log(star);
                   return star < ratingAmount ? (
                     <i className='fa-solid fa-star' key={star}></i>
                   ) : null;
@@ -76,7 +93,7 @@ const ProductDetailsSection = ({item}) => {
                   <div className='choose-size'>
                     <h4>Size: </h4>
                     <input
-                      type='radio'
+                      type='checkbox'
                       className='btn-check'
                       name='options'
                       id='option1'
@@ -121,6 +138,35 @@ const ProductDetailsSection = ({item}) => {
                   </div>
                   <div className='choose-color'>
                     <h4>Color: </h4>
+                    <div class='dropdown'>
+                      <a
+                        class='btn btn-secondary dropdown-toggle'
+                        href='#'
+                        role='button'
+                        data-bs-toggle='dropdown'
+                        aria-expanded='false'
+                      >
+                        Dropdown link
+                      </a>
+
+                      <ul class='dropdown-menu'>
+                        <li>
+                          <a class='dropdown-item' href='#'>
+                            Action
+                          </a>
+                        </li>
+                        <li>
+                          <a class='dropdown-item' href='#'>
+                            Another action
+                          </a>
+                        </li>
+                        <li>
+                          <a class='dropdown-item' href='#'>
+                            Something else here
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                   <div className='quantity'>
                     <h4>Qty: </h4>
@@ -196,5 +242,5 @@ const ProductDetailsSection = ({item}) => {
       </div>
     </>
   );
-}
-export default ProductDetailsSection
+};
+export default ProductDetailsSection;

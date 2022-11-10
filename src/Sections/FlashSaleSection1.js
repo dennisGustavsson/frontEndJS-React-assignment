@@ -4,12 +4,14 @@ import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const FlashSaleSection1 = () => {
-  const { featuredProducts, getFeaturedProducts } =
+  const { flashProducts, getFlashProducts } =
     useProductContext();
 
   useEffect(() => {
-    getFeaturedProducts(4);
+    getFlashProducts(4);
   }, []);
+
+
 
 
   return (
@@ -20,7 +22,7 @@ const FlashSaleSection1 = () => {
             <h2>2 FOR $29.00</h2>
             <NavLink className='btn-theme btn-theme-white'>Flash Sale</NavLink>
           </div>
-          <ProductGridSection items={featuredProducts} />
+          <ProductGridSection items={flashProducts} />
         </div>
       </section>
     </>

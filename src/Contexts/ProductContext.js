@@ -18,6 +18,7 @@ export const ProductProvider = ({ children }) => {
   //featured products list
   const [featuredProducts, setFeaturedProducts] = useState([]);
 
+  const [flashProducts, setFlashProducts] = useState([]);
   const [specialProducts, setSpecialProducts] = useState([]);
 
   // TODO will add latest, best selling and top reacted later
@@ -33,9 +34,14 @@ export const ProductProvider = ({ children }) => {
     setFeaturedProducts(await result.json());
   };
 
-    const getSpecialProducts = async (take = 0) => {
+  const getSpecialProducts = async (take = 0) => {
+    const result = await fetch(url + `?take=${take}`);
+    setSpecialProducts(await result.json());
+  };
+
+    const getFlashProducts = async (take = 0) => {
       const result = await fetch(url + `?take=${take}`);
-      setSpecialProducts(await result.json());
+      setFlashProducts(await result.json());
     };
 
   //fetches product from articleNumber to product details
@@ -56,6 +62,8 @@ export const ProductProvider = ({ children }) => {
         getProduct,
         getSpecialProducts,
         specialProducts,
+        flashProducts,
+        getFlashProducts,
       }}
     >
       {children}
