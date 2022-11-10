@@ -4,28 +4,32 @@
     align-items: center;
     flex-direction: column;
 
-    // h2 {
-    //     padding-top: 0;
-    //     margin: 0;
-    // }
     .container {
         margin: 0;
         padding: 0;
         display: grid;
         justify-content: center;
+
+        @include md {
+            .section-title {
+
+                margin-top: 8rem;
+            }
+        }
+
     }
 
     .product-grid {
         display: grid;
 
         grid-template-columns: 1fr;
-        // gap: 10px;
+
         @include md {
             grid-template-columns: auto auto;
         }
+
         @include lg {
             grid-template-columns: repeat(4, auto);
-            // grid-template-columns: repeat(4, minmax(250px, 270px));
         }
     }
 

@@ -1,5 +1,6 @@
 import leftShowcase from "../Assets/images/img-2.svg";
 import rightShowcase from "../Assets/images/img-1.svg";
+import { NavLink } from "react-router-dom";
 
 const ShowcaseSection = () => {
   return (
@@ -11,7 +12,7 @@ const ShowcaseSection = () => {
             sale up to 50% off{" "}
             <span>Online shopping free home deilvery over $100</span>
           </h2>
-          <a className='btn-theme'>Shop now</a>
+          <NavLink to='/products/' className='btn-theme'>Shop now</NavLink>
         </div>
         <img id='hide-img' src={rightShowcase} alt='placeholder image' />
       </div>

@@ -3,29 +3,44 @@ import { useState } from "react"
 import { getNameToUpper } from '../Assets/Scripts/getNameToUpper'
 import ExternalLinkIcon from "../Components/ExternalLinkIcon"
 import TabsMenu from "../Components/TabsMenu"
+import { currencyFormatter } from "../Assets/Scripts/CurrencyFormatter"
 
 
 
 const ProductDetailsSection = ({item}) => {
 
-    //
-    const [count, setCount] = useState(1)
 
-    const handleChange = (e) => {
-        let input = e.target.id;
-
-        switch(input) {
-            case 'add':
-                setCount(count + 1)
-            break
-            case 'sub':
-                setCount(count -1)
-        }
+    // variable for star-rating
+    const ratingAmount = item.rating;
 
 
+  //cant get this to work on the product title
+  //Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'toLowerCase')
+  // const getNameToUpper = async (name) => {
+  //   const firstLetterUpper = await name
+  //     .toLowerCase()
+  //     .split(" ")
+  //     .map((word) => {
+  //       return word.charAt(0).toUpperCase() + word.slice(1);
+  //     })
+  //     .join(" ");
+  //   return firstLetterUpper;
+  // };
+
+  // 
+  const [count, setCount] = useState(1);
+
+  const handleChange = (e) => {
+    let input = e.target.id;
+
+    switch (input) {
+      case "add":
+        setCount(count + 1);
+        break;
+      case "sub":
+        setCount(count - 1);
     }
-    
-    
+  };
 
   return (
     <>
@@ -36,19 +51,20 @@ const ProductDetailsSection = ({item}) => {
               <img src={item.imageName} alt={item.name} />
             </div>
             <div className='product-info'>
-              <h1>{getNameToUpper(item.name)}</h1>
-              <span className='articleNr'>
-                SKU: 12345670 BRAND: The Northland
-              </span>
+              <h1>{item.name}</h1>
+              {/* <h1>{getNameToUpper(item.name)}</h1> */}
+              <span className='articleNr'>{item.articleNumber}</span>
               <div className='rating'>
-                {item.rating}
-                <i className='fa-solid fa-star'></i>
-                <i className='fa-solid fa-star'></i>
-                <i className='fa-solid fa-star'></i>
-                <i className='fa-solid fa-star'></i>
-                <i className='fa-solid fa-star'></i>
+                {/* used this :
+                https://blog.logrocket.com/build-a-half-star-rating-component-in-react-from-scratch/ */}
+                {[...new Array(ratingAmount)].map((arr, star) => {
+                  console.log(star)
+                  return star < ratingAmount ? (
+                    <i className='fa-solid fa-star' key={star}></i>
+                  ) : null;
+                })}
               </div>
-              <span className='price'>{item.price}</span>
+              <span className='price'>{currencyFormatter(item.price)}</span>
               <p className='details'>
                 Discovered had get considered projection who favourable.
                 Necessary up knowledge it tolerably. Unwilling departure

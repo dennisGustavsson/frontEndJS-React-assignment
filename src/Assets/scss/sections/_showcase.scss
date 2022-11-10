@@ -1,6 +1,7 @@
 .showcase {
     padding-top: 80px;
     background-image: linear-gradient(90deg, $color-gradient-dark, $color-gradient-light);
+    margin-bottom: 4rem;
 
     .showcaseWrap {
         position: relative;
@@ -14,69 +15,73 @@
 
         #hide-img {
             display: none;
-            }
-        
-            // responsiveness for larger screens
+        }
+
+
+
+        // responsiveness for larger screens
         @include lg {
             margin-inline: auto;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-between;
             max-width: 90%;
-    
+
             img {
                 max-width: 60%;
             }
-    
+
             #hide-img {
                 display: block;
             }
-        }   
+        }
 
     }
 
-.showcase-items {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    position: absolute;
-    width: 500px;
-    top: 20%;
-
-    // center showcase items between showcase images
-    @include md {
+    .showcase-items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
         max-width: 500px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+        top: 20%;
 
-    h2 {
-        font-size: $font-size-35;
-        font-weight: $font-w-extrabold;
-        text-transform: uppercase;
-        margin-bottom: 1.5rem;
-        padding: 0;
-        display: block;
-        // bigger fontsize
+        // center showcase items between showcase images
         @include md {
-            font-size: $font-size-65
+            max-width: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        span {
-            display: block;
-            text-transform: initial;
-            font-size: $font-size-16;
-            font-weight: $font-w-regular;
 
+        h2 {
+            font-size: $font-size-35;
+            font-weight: $font-w-extrabold;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            padding: 0;
+            display: block;
+
+            // bigger fontsize
             @include md {
-                font-size:  $font-size-20;
-                padding: 1rem;
+                font-size: $font-size-65
             }
-            
+
+            span {
+                display: block;
+                text-transform: initial;
+                font-size: $font-size-16;
+                font-weight: $font-w-regular;
+
+                @include md {
+                    font-size: $font-size-20;
+                    padding: 1rem;
+                }
+
+            }
         }
     }
-}
 
 }

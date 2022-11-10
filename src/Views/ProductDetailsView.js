@@ -16,7 +16,7 @@ const ProductDetailsView = () => {
       }, []);
 
 
-  const params = useParams()
+ 
 
       // /* window title  */
       // window.top.document.title = `${getNameToUpper(product.name.replace(/-/g, " "))} | Fixxo`;
@@ -31,7 +31,8 @@ const ProductDetailsView = () => {
           <span>Get 25% OFF at the Fixxo Selection - Shop Now!</span>
         </div>
       </div>
-      <BreadcrumbSection currentPage={getNameToUpper(product.name)} />
+      {/* <BreadcrumbSection currentPage={getNameToUpper(product.name)} /> */}
+      <BreadcrumbSection currentPage={product.name} />
       <ProductDetailsSection item={product} />
       <FooterSection />
     </>
