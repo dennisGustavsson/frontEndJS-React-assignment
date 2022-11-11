@@ -1,10 +1,3 @@
-.flexEnd {
-    @include lg {
-        justify-content: flex-end !important;
-    }
-
-}
-
 .flash-sale {
     background-color: $color-theme-white;
     height: 100%;
@@ -12,12 +5,10 @@
     display: flex;
     justify-content: center;
     margin-inline: auto;
-    
+
     @include lg {
         justify-content: flex-start;
     }
-
-
 
     h2 {
         padding-top: 0;
@@ -51,6 +42,7 @@
                 margin-top: 0;
             }
         }
+
         .flash-advert {
             height: 200px;
             width: 100%;
@@ -61,6 +53,7 @@
             align-items: center;
             flex-direction: column;
 
+            //media query desktop
             @include lg {
                 width: 785px;
                 justify-self: flex-end;
@@ -80,9 +73,11 @@
         .product-grid {
             grid-template-columns: auto;
 
+            //media query tablets and desktop
             @include md {
                 grid-template-columns: auto auto;
             }
+
             .section-title {
                 margin-top: 0;
             }
@@ -125,19 +120,22 @@
                     }
                 }
 
-
-
             }
         }
-
-
-
 
     }
 
 }
 
-/* --------------------------- UP TO 70 OFF SECTION ------------------------ */
+.flexEnd {
+
+    //media query desktop
+    @include lg {
+        justify-content: flex-end !important;
+    }
+}
+
+/* --------------------------- UP TO 70% OFF SECTION ------------------------ */
 .flash-grid-center {
     display: flex;
     flex-direction: column;
@@ -184,12 +182,14 @@
         grid-auto-rows: auto;
         align-content: space-around;
 
+        //media query tablet
         @include md {
             justify-content: center;
             gap: 1rem;
             grid-template-columns: auto auto;
         }
 
+        //media query desktop
         @include lg {
             width: 90%;
             grid-template-columns: repeat(3, 1fr);
@@ -200,6 +200,7 @@
             font-size: $font-size-20;
             margin-block: 2rem;
 
+            //media query desktop
             @include lg {
                 text-align: start;
             }
@@ -221,6 +222,7 @@
             overflow: hidden;
             margin-inline: 0;
 
+            //media query desktop
             @include lg {
                 grid-template-columns: 1fr 2fr;
                 margin-left: 0;
@@ -232,6 +234,7 @@
                 width: 200px;
                 margin-right: 0.5rem;
 
+                //media query desktop
                 @include lg {
                     height: 210px;
                     width: 220px;

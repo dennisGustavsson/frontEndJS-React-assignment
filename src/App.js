@@ -13,7 +13,6 @@ import NotFoundView from "./Views/NotFoundView";
 import { ProductProvider } from "./Contexts/ProductContext";
 import { ShoppingCartProvider } from "./Contexts/ShoppingCartContext";
 
-
 function App() {
   return (
     <BrowserRouter>

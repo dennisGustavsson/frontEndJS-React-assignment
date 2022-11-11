@@ -1,11 +1,11 @@
-import { FooterSection } from "../Sections/FooterSection"
-import MainMenuSection from "../Sections/MainMenuSection"
+import { FooterSection } from "../Sections/FooterSection";
+import MainMenuSection from "../Sections/MainMenuSection";
 const CompareView = () => {
   return (
     <>
-    <MainMenuSection/>
-    <FooterSection/>
+      <MainMenuSection />
+      <FooterSection />
     </>
-  )
-}
-export default CompareView
+  );
+};
+export default CompareView;

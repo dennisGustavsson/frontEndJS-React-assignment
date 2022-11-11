@@ -70,18 +70,6 @@ const MainMenuSection = () => {
             <i className='fa-regular fa-shopping-bag'></i>
           </button>
 
-          {/* <MenuIcon
-            quantity={1}
-            link='/shoppingcart'
-            icon='fa-regular fa-shopping-bag'
-          /> */}
-          {/* <NavLink className='menu-icon' to='/shoppingcart' end>
-            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme'>
-              0
-            </span>
-            <i className='fa-regular fa-shopping-bag'></i>
-          </NavLink> */}
-
           <button
             onClick={toggleMenu}
             className='d-lg-none menu-icon btn-menu-icon'

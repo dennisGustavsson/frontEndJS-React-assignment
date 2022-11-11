@@ -46,9 +46,6 @@
                 }
             }
         }
-
-
-
     }
 
     .product-info {
@@ -97,11 +94,8 @@
 
         i {
             color: $theme-color;
-
-
         }
     }
-
 
     .old-price {
         text-decoration: line-through;
@@ -116,6 +110,4 @@
         font-weight: $font-w-semibold;
         display: inline-block;
     }
-
-
 }

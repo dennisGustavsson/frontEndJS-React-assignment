@@ -1,8 +1,8 @@
-const ExternalLinkIcon = ({link, icon}) => {
+const ExternalLinkIcon = ({ link, icon }) => {
   return (
-    <a href={link} target="_blank">
-        <i className={icon}></i>
+    <a href={link} target='_blank'>
+      <i className={icon}></i>
     </a>
-  )
-}
-export default ExternalLinkIcon
+  );
+};
+export default ExternalLinkIcon;

@@ -5,23 +5,22 @@
 
 .service-content {
     display: flex;
-    // grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 
+    //media query tablets
     @include md {
         gap: 1rem;
         grid-template-columns: repeat(2, auto);
         grid-auto-rows: auto;
     }
 
+    //media query desktop
     @include lg {
         grid-template-columns: repeat(3, auto);
         gap: 3rem;
     }
-
-
 
     .service-card {
         width: 500px;
@@ -51,8 +50,6 @@
             background-color: $color-gray-10;
         }
     }
-
-
 }
 
 .get-started {

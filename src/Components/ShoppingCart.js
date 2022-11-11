@@ -12,7 +12,7 @@ const ShoppingCart = () => {
       >
         <div className='offcanvas-header'>
           <h5 className='offcanvas-title' id='shoppingCartLabel'>
-            <i className='fa-regular fa-shopping-bag'></i>   Your shopping cart:
+            <i className='fa-regular fa-shopping-bag'></i> Your shopping cart:
           </h5>
           <button
             type='button'

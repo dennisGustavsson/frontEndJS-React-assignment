@@ -1,15 +1,14 @@
-import { FooterSection } from "../Sections/FooterSection"
-import MainMenuSection from "../Sections/MainMenuSection"
+import { FooterSection } from "../Sections/FooterSection";
+import MainMenuSection from "../Sections/MainMenuSection";
 const WishListView = () => {
-
-      /* window title  */
-      window.top.document.title = 'Wish List | Fixxo';
+  /* window title  */
+  window.top.document.title = "Wish List | Fixxo";
 
   return (
     <>
-    <MainMenuSection/>
-    <FooterSection/>
+      <MainMenuSection />
+      <FooterSection />
     </>
-  )
-}
-export default WishListView
+  );
+};
+export default WishListView;

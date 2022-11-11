@@ -9,10 +9,12 @@ const ShowcaseSection = () => {
         <img src={leftShowcase} />
         <div className='showcase-items'>
           <h2>
-            sale up to 50% off{" "}
+            sale up to 50% off
             <span>Online shopping free home deilvery over $100</span>
           </h2>
-          <NavLink to='/products/' className='btn-theme'>Shop now</NavLink>
+          <NavLink to='/products/' className='btn-theme'>
+            Shop now
+          </NavLink>
         </div>
         <img id='hide-img' src={rightShowcase} alt='placeholder image' />
       </div>

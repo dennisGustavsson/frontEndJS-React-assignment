@@ -14,15 +14,10 @@ const ProductsView = ({ title }) => {
     getProducts();
   }, []);
 
-
-
   return (
     <>
       <MainMenuSection />
-      {/* <div style={{ marginTop: "160px" }}> */}
-        <ProductGridSection title='Products' items={products} />
-      {/* </div> */}
-
+      <ProductGridSection title='Products' items={products} />
       <FooterSection />
     </>
   );

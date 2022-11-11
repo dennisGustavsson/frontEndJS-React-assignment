@@ -24,6 +24,8 @@ export const ShoppingCartProvider = ({ children }) => {
     );
   };
 
+  //Adds one to shoppingcart
+
   const incrementQuantity = (cartItem) => {
     const { articleNumber, product } = cartItem;
 
@@ -41,6 +43,8 @@ export const ShoppingCartProvider = ({ children }) => {
       }
     });
   };
+
+  //Removes one from shoppingcart
 
   const decrementQuantity = (cartItem) => {
     const { articleNumber } = cartItem;
@@ -62,6 +66,8 @@ export const ShoppingCartProvider = ({ children }) => {
       }
     });
   };
+
+  //removes all of one article from shoppingcart
 
   const removeItem = (articleNumber) => {
     setCartItems((items) => {

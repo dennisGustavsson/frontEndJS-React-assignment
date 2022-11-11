@@ -4,15 +4,11 @@ import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const FlashSaleSection1 = () => {
-  const { flashProducts, getFlashProducts } =
-    useProductContext();
+  const { flashProducts, getFlashProducts } = useProductContext();
 
   useEffect(() => {
     getFlashProducts(4);
   }, []);
-
-
-
 
   return (
     <>

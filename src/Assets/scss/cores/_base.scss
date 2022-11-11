@@ -3,6 +3,7 @@
 html {
     height: 100%;
 }
+
 body {
     position: relative;
     font-size: 16px;
@@ -14,47 +15,53 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
- }
+}
 
 
- button {
+button {
     border: none;
     outline: none;
 }
 
- ul {
+ul {
     padding-bottom: 0;
     margin-bottom: 0;
- }
- .bg-theme {
+}
+
+.bg-theme {
     background-color: $color-theme;
- }
- .section-title {
+}
+
+.section-title {
     font-weight: $font-w-bold;
     margin-bottom: 4rem;
     text-align: center;
- }
+}
 
- img {
+img {
     max-width: 100%;
     height: auto;
 
- }
+}
 
 
- .container-fluid {
+.container-fluid {
     max-width: 100%;
     padding: 0;
     margin: 0 auto;
     overflow: auto;
- }
- 
+}
+
 .container {
     padding: 0;
     margin: 0 auto;
+
+    //media query for tablets
     @include md {
         max-width: 1110px;
     }
+
+    //media query for desktop
     @include lg {
         max-width: 1600px;
     }
@@ -70,14 +77,13 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 
+    //media query for desktop
     @include lg {
         gap: 2rem;
-        grid-template-columns: 1fr 1fr;  
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 .relative {
     position: relative;
 }
-
-

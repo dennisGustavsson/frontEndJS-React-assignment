@@ -13,8 +13,7 @@ import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const HomeView = () => {
-  const { featuredProducts, getFeaturedProducts } =
-    useProductContext();
+  const { featuredProducts, getFeaturedProducts } = useProductContext();
 
   /* window title  */
   window.top.document.title = "Home | Fixxo";
@@ -22,8 +21,6 @@ const HomeView = () => {
   useEffect(() => {
     getFeaturedProducts(8);
   }, []);
-
-
 
   return (
     <>

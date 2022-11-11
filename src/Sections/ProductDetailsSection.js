@@ -16,7 +16,6 @@ const ProductDetailsSection = ({ item }) => {
     getFlashProducts(4);
   }, []);
 
-
   //
   const [count, setCount] = useState(1);
 
@@ -44,7 +43,6 @@ const ProductDetailsSection = ({ item }) => {
                 alt={item.name}
               />
               <div className='details'>
-                {" "}
                 <img
                   className='detail-image'
                   src={item.imageName}
@@ -229,11 +227,7 @@ const ProductDetailsSection = ({ item }) => {
             </div>
           </div>
           <TabsMenu />
-          <ProductGridSection
-            title='Related Products'
-            items={flashProducts}
-          />
-
+          <ProductGridSection title='Related Products' items={flashProducts} />
         </div>
       </div>
     </>

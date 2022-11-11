@@ -3,32 +3,36 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 1rem;
 
+    //media query tablets and desktop
     @include md {
         flex-direction: row;
-        // margin: 4rem;
     }
+
     .jumbo-content {
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
 
+        //media query tablets and desktop
         @include md {
             justify-content: flex-start;
             align-items: flex-end;
         }
+
         img {
             min-height: 400px;
             object-fit: cover;
 
+            //media query tablets and desktop
             @include sm {
                 height: 100%;
                 width: 100%;
-                // object-fit: initial;
-                // margin-block:1rem;
             }
         }
+
         .jumbo-text {
             display: flex;
             justify-content: center;
@@ -38,6 +42,8 @@
             position: absolute;
             z-index: 2;
             text-align: center;
+
+            //media query tablets and desktop
             @include md {
                 display: block;
                 text-align: start;
@@ -46,16 +52,20 @@
                 height: auto;
                 margin-bottom: 2rem;
             }
+
             h2 {
                 font-size: $font-size-35;
                 font-weight: $font-w-bold;
             }
+
             span {
                 font-size: $font-size-14;
             }
+
             button {
                 margin-block: 1rem;
                 background-color: $color-theme-black-1;
+
                 &:hover {
                     background-color: $color-gray-15;
                 }
@@ -66,53 +76,60 @@
     .pamela {
         color: $color-theme-white;
         justify-content: flex-end;
+        margin-bottom: 3rem;
+
         img {
-        @include lg {
-            margin-right: 1rem;
-        }
 
+            //media query desktop
+            @include lg {
+                margin-right: 1rem;
+            }
+
+        }
     }
-    }
+
     .conscious {
+        margin-bottom: 3rem;
 
+        img {
 
-    img {
-        @include lg {
-
-            margin-left: 1rem;
-        }
-        
-    }
-    .jumbo-text {
-        button {
-            background-color: $color-theme-white;
-            color: $color-theme-black-1;
-            &::before {
-                content: '';
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                border: 2px solid $color-theme-black-1;
-                border-right: none;
-                border-bottom: none;
-                width: 20px;
-                height: 20px;
-        
+            //media query desktop
+            @include lg {
+                margin-left: 1rem;
             }
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 10px;
-                right: 10px;
-                border: 2px solid $color-theme-black-1;
-                border-left: none;
-                border-top: none;
-                width: 20px;
-                height: 20px;
+
+        }
+
+        .jumbo-text {
+            button {
+                background-color: $color-theme-white;
+                color: $color-theme-black-1;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    border: 2px solid $color-theme-black-1;
+                    border-right: none;
+                    border-bottom: none;
+                    width: 20px;
+                    height: 20px;
+
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    border: 2px solid $color-theme-black-1;
+                    border-left: none;
+                    border-top: none;
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
     }
-
-   
-}
 }

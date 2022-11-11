@@ -2,6 +2,8 @@ import { currencyFormatter } from "../Assets/Scripts/CurrencyFormatter";
 import { useShoppingCart } from "../Contexts/ShoppingCartContext";
 
 const ShoppingCartItem = ({ item }) => {
+
+  //from shoppingcartContext, for adding and removal from cart
   const { incrementQuantity, decrementQuantity, removeItem } =
     useShoppingCart();
   return (
@@ -13,7 +15,9 @@ const ShoppingCartItem = ({ item }) => {
         <div className='item-infoName'>{item.product.name}</div>
         <div className='item-infoQuantity'>
           <button onClick={() => decrementQuantity(item)}>-</button>
-          <div className='quantity' data-testid>{item.quantity}</div>
+          <div className='quantity' data-testid>
+            {item.quantity}
+          </div>
           <button onClick={() => incrementQuantity(item)}>+</button>
         </div>
       </div>
@@ -23,7 +27,7 @@ const ShoppingCartItem = ({ item }) => {
           className='trash'
           onClick={() => removeItem(item.articleNumber)}
         >
-          <i class='fa-solid fa-trash'></i>
+          <i className='fa-solid fa-trash'></i>
         </button>
       </div>
     </div>

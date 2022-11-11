@@ -4,13 +4,11 @@ import { useEffect } from "react";
 import ProductGridSection from "./ProductGridSection";
 
 const FlashSaleSection3 = () => {
-  const { specialProducts, getSpecialProducts } =
-    useProductContext();
+  const { specialProducts, getSpecialProducts } = useProductContext();
 
   useEffect(() => {
     getSpecialProducts(3);
   }, []);
-
 
   return (
     <>

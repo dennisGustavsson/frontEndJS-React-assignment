@@ -1,14 +1,13 @@
 .container {
     max-width: 1110px;
 
-
     .tabs {
         padding-inline: 0.5rem;
 
+        //media query for desktop
         @include lg {
             padding: 0;
         }
-
 
         .navigation {
             display: flex;
@@ -17,6 +16,7 @@
             width: 100%;
             padding: 0;
 
+            //media query for desktop
             @include lg {
                 display: inline;
             }
@@ -30,6 +30,7 @@
                 width: inherit;
                 z-index: -1;
 
+                //media query for desktop
                 @include lg {
                     bottom: -1px;
                 }
@@ -56,6 +57,7 @@
                     margin-right: 0;
                 }
 
+                //media query for desktop
                 @include lg {
                     font-size: $font-size-16;
                 }

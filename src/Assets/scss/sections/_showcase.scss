@@ -12,14 +12,12 @@
         flex-wrap: wrap;
         align-items: center;
 
-
+        //hides one image on smaller screens
         #hide-img {
             display: none;
         }
 
-
-
-        // responsiveness for larger screens
+        // media query desktop
         @include lg {
             margin-inline: auto;
             flex-direction: row;
@@ -35,7 +33,6 @@
                 display: block;
             }
         }
-
     }
 
     .showcase-items {
@@ -48,7 +45,7 @@
         max-width: 500px;
         top: 20%;
 
-        // center showcase items between showcase images
+        // media query tablet and desktop
         @include md {
             max-width: 500px;
             top: 50%;
@@ -64,7 +61,7 @@
             padding: 0;
             display: block;
 
-            // bigger fontsize
+            // media query tablet and desktop
             @include md {
                 font-size: $font-size-65
             }
@@ -75,13 +72,12 @@
                 font-size: $font-size-16;
                 font-weight: $font-w-regular;
 
+                // media query tablet and desktop
                 @include md {
                     font-size: $font-size-20;
                     padding: 1rem;
                 }
-
             }
         }
     }
-
 }

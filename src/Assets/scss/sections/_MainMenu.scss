@@ -1,29 +1,31 @@
-
 .main-menu {
     padding: 1rem;
     z-index: 1;
 
+    //media query tablets and desktop
     @include md {
-    padding: 2.2rem;
-    position: fixed;
-    width: 100%;
+        padding: 2.2rem;
+        position: fixed;
+        width: 100%;
     }
 
     .container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: 
-        "logo logo icons"
-        "menulinks menulinks menulinks";
+        grid-template-areas:
+            "logo logo icons"
+            "menulinks menulinks menulinks";
         align-items: center;
         position: relative;
         max-width: 1800px;
-        @include lg {
-            grid-template-areas: 
-            "logo menulinks icons"
-            ;
 
+        //media query desktop
+        @include lg {
+            grid-template-areas:
+                "logo menulinks icons"
+            ;
         }
+
         .logo {
             grid-area: logo;
             font-weight: $font-w-bold;
@@ -32,11 +34,10 @@
             text-decoration: none;
             margin: 0;
             transition: 200ms ease-in-out;
-    
+
             &:hover {
                 color: $color-gray-20;
             }
-
         }
 
         .menu-links {
@@ -49,6 +50,8 @@
             align-items: flex-start;
             justify-content: flex-start;
             flex-direction: column;
+
+            //media querydesktop
             @include lg {
                 display: flex;
                 justify-content: center;
@@ -56,11 +59,12 @@
                 flex-direction: row;
             }
         }
-    
+
         li {
             margin-inline: 0.5rem;
             margin-block: 0.6rem;
 
+            //media query tablets and desktop
             @include md {
                 margin-block: 0;
             }
@@ -71,25 +75,26 @@
                 color: $color-theme-black-1;
                 text-shadow: 1px 1px 7px #fff;
                 transition: 200ms ease-in-out;
+
                 &:hover {
                     color: $color-theme;
                     text-shadow: none;
                 }
-
             }
+
             .active {
                 color: $color-theme;
                 text-shadow: none;
             }
-
         }
-    
+
         .main-menu-icons {
             grid-area: icons;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-        
+
+            //media query tablets and desktop
             @include md {
                 flex-direction: row;
             }
@@ -97,11 +102,7 @@
             .active {
                 background-color: $color-theme-black-1;
                 color: $color-theme-white;
-        
             }
         }
     }
-    
-
-    
 }
