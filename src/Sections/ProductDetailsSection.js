@@ -3,11 +3,19 @@ import { useState } from "react";
 import { getNameToUpper } from "../Assets/Scripts/getNameToUpper";
 import ExternalLinkIcon from "../Components/ExternalLinkIcon";
 import TabsMenu from "../Components/TabsMenu";
+import ProductGridSection from "../Sections/ProductGridSection";
 import { currencyFormatter } from "../Assets/Scripts/CurrencyFormatter";
+import { useProductContext } from "../Contexts/ProductContext";
+import { useEffect } from "react";
 
 const ProductDetailsSection = ({ item }) => {
   // variable for star-rating
   const ratingAmount = item.rating;
+
+  const { flashProducts, getFlashProducts } = useProductContext();
+  useEffect(() => {
+    getFlashProducts(4);
+  }, []);
 
   //cant get this to work on the product title
   //Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'toLowerCase')
@@ -75,7 +83,6 @@ const ProductDetailsSection = ({ item }) => {
                 {/* used this :
                 https://blog.logrocket.com/build-a-half-star-rating-component-in-react-from-scratch/ */}
                 {[...new Array(ratingAmount)].map((arr, star) => {
-                  console.log(star);
                   return star < ratingAmount ? (
                     <i className='fa-solid fa-star' key={star}></i>
                   ) : null;
@@ -138,32 +145,32 @@ const ProductDetailsSection = ({ item }) => {
                   </div>
                   <div className='choose-color'>
                     <h4>Color: </h4>
-                    <div class='dropdown'>
-                      <a
-                        class='btn btn-secondary dropdown-toggle'
+                    <div className='dropdown'>
+                      <NavLink
+                        className='btn btn-secondary dropdown-toggle'
                         href='#'
                         role='button'
                         data-bs-toggle='dropdown'
                         aria-expanded='false'
                       >
-                        Dropdown link
-                      </a>
+                        Choose an Option
+                      </NavLink>
 
-                      <ul class='dropdown-menu'>
+                      <ul className='dropdown-menu'>
                         <li>
-                          <a class='dropdown-item' href='#'>
-                            Action
-                          </a>
+                          <NavLink className='dropdown-item' href='#'>
+                            Black
+                          </NavLink>
                         </li>
                         <li>
-                          <a class='dropdown-item' href='#'>
-                            Another action
-                          </a>
+                          <NavLink className='dropdown-item' href='#'>
+                            Off white
+                          </NavLink>
                         </li>
                         <li>
-                          <a class='dropdown-item' href='#'>
-                            Something else here
-                          </a>
+                          <NavLink className='dropdown-item' to='#'>
+                            Beige
+                          </NavLink>
                         </li>
                       </ul>
                     </div>
@@ -236,8 +243,11 @@ const ProductDetailsSection = ({ item }) => {
             </div>
           </div>
           <TabsMenu />
+          <ProductGridSection
+            title='Related Products'
+            items={flashProducts}
+          />
 
-          <div className='product-grid'>{/* <ProductGridSection /> */}</div>
         </div>
       </div>
     </>

@@ -15,8 +15,8 @@
         align-items: center;
 
         @include md {
-            justify-content: start;
-            align-items: end;
+            justify-content: flex-start;
+            align-items: flex-end;
         }
         img {
             min-height: 400px;
@@ -65,7 +65,7 @@
 
     .pamela {
         color: $color-theme-white;
-        justify-content: end;
+        justify-content: flex-end;
         img {
         @include lg {
             margin-right: 1rem;

@@ -46,8 +46,8 @@
             list-style: none;
             padding: 0;
             margin-bottom: 1rem;
-            align-items: start;
-            justify-content: start;
+            align-items: flex-start;
+            justify-content: flex-start;
             flex-direction: column;
             @include lg {
                 display: flex;
@@ -87,7 +87,7 @@
         .main-menu-icons {
             grid-area: icons;
             display: flex;
-            justify-content: end;
+            justify-content: flex-end;
             align-items: center;
         
             @include md {

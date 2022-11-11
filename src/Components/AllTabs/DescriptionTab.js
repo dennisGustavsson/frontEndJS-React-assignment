@@ -9,6 +9,7 @@ const DescriptionTab = () => {
             <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit porro nostrum voluptatem autem laborum.</li>
             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
          </ul>
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus temporibus et atque ducimus quaerat totam alias mollitia reiciendis minima optio?
     </div>
   )
 }

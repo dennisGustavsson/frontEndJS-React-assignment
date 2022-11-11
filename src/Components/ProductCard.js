@@ -7,17 +7,7 @@ const ProductCard = ({ item }) => {
     const {incrementQuantity} = useShoppingCart()
 
     const ratingAmount = item.rating;
-    // console.log(ratingAmount)
 
-    // const addToWishlist = (e) => {
-    //     console.log(`added to wishlist`);
-    // }
-    // const addToCompare = (e) => {
-    //     console.log('added compare');
-    // }
-    // const addToCart = (e) => {
-    //     console.log('added to shopping cart');
-    // }
 
     return (
       <>
@@ -68,7 +58,6 @@ const ProductCard = ({ item }) => {
                 })}
               </div>
               <div className='old-price'></div>
-              <div className='new-price'>{}</div>
               <div className='new-price'>{currencyFormatter(item.price)}</div>
             </div>
           </div>
