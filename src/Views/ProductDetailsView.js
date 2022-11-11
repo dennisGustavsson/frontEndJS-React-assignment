@@ -3,7 +3,6 @@ import { FooterSection } from "../Sections/FooterSection"
 import MainMenuSection from "../Sections/MainMenuSection"
 import BreadcrumbSection from "../Sections/BreadcrumbSection"
 import ProductDetailsSection from "../Sections/ProductDetailsSection"
-import { getNameToUpper } from "../Assets/Scripts/getNameToUpper"
 import { useProductContext } from "../Contexts/ProductContext"
 import { useEffect } from "react"
 

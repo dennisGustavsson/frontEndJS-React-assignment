@@ -4,21 +4,16 @@ import { useProductContext } from "../Contexts/ProductContext";
 import { useEffect } from "react";
 
 const FlashSaleSection2 = () => {
-  const { featuredProducts, getFeaturedProducts, products, getProducts } =
-    useProductContext();
+  const { flashProducts, getFlashProducts } = useProductContext();
 
   useEffect(() => {
-    getFeaturedProducts(4);
-  }, []);
-
-  useEffect(() => {
-    getProducts();
+    getFlashProducts(4);
   }, []);
   return (
     <>
       <section className='flash-sale flexEnd'>
         <div className='flash-grid reverse-grid'>
-          <ProductGridSection items={featuredProducts} />
+          <ProductGridSection items={flashProducts} />
           <div className='flash-advert'>
             <h2>2 FOR $49.00</h2>
             <NavLink className='btn-theme btn-theme-white'>Flash Sale</NavLink>

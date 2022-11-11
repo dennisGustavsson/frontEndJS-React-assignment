@@ -15,6 +15,7 @@
     padding-inline: 1rem;
     transition: 200ms ease-in-out;
     cursor: pointer;
+
     &:hover {
         background-color: $color-theme-hover;
         color: $color-theme-white;
@@ -37,6 +38,7 @@
         height: 20px;
 
     }
+
     &::after {
         content: '';
         position: absolute;
@@ -64,8 +66,9 @@
             border-bottom: none;
             width: 20px;
             height: 20px;
-    
+
         }
+
         &::after {
             content: '';
             position: absolute;
@@ -76,21 +79,18 @@
             border-top: none;
             width: 20px;
             height: 20px;
-    
+
         }
 
         &:hover {
             background-color: $color-theme-black-1;
             color: $color-theme-white;
-            &::before, &::after {
+
+            &::before,
+            &::after {
                 border-color: $color-theme-white;
             }
         }
     }
 
 }
-
-
-
-
-

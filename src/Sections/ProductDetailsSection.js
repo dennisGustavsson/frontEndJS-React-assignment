@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { getNameToUpper } from "../Assets/Scripts/getNameToUpper";
 import ExternalLinkIcon from "../Components/ExternalLinkIcon";
 import TabsMenu from "../Components/TabsMenu";
 import ProductGridSection from "../Sections/ProductGridSection";
@@ -17,18 +16,6 @@ const ProductDetailsSection = ({ item }) => {
     getFlashProducts(4);
   }, []);
 
-  //cant get this to work on the product title
-  //Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'toLowerCase')
-  // const getNameToUpper = async (name) => {
-  //   const firstLetterUpper = await name
-  //     .toLowerCase()
-  //     .split(" ")
-  //     .map((word) => {
-  //       return word.charAt(0).toUpperCase() + word.slice(1);
-  //     })
-  //     .join(" ");
-  //   return firstLetterUpper;
-  // };
 
   //
   const [count, setCount] = useState(1);
@@ -77,7 +64,6 @@ const ProductDetailsSection = ({ item }) => {
             </div>
             <div className='product-info'>
               <h1>{item.name}</h1>
-              {/* <h1>{getNameToUpper(item.name)}</h1> CANT GET THIS TO WORK PROPERLY */}
               <span className='articleNr'>{item.articleNumber}</span>
               <div className='rating'>
                 {/* used this :
